@@ -1,9 +1,37 @@
-import React from "react";
+"use client";
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 
-const QuickActionBox = () => {
+const QuickActionBox = ({
+  boxTitle,
+  boxSubtitle,
+  boxAction,
+  boxImg,
+  boxImgAlt,
+  boxImgDescription,
+  boxImg2,
+  isDark,
+}) => {
   return (
-    <div className="aspect-square rounded-[8px] bg-linear-180 from-[#C51010] via-[#2C0404] to-[#0a0a0a] flex flex-col items-center justify-center">
-      <h2 className="text-white font-semibold text-2xl">Our Teams</h2>
+    <div
+      className={`aspect-square rounded-[8px] border flex flex-col items-center overflow-hidden
+      ${
+        isDark
+          ? "bg-black text-text border-neutral-100/50 shadow-[0px 0px 10px 0px rgba(255, 255, 255, 0.50) inset;]"
+          : "bg-white text-text border-neutral-200/50"
+      }
+    `}
+    >
+      <div className="w-full h-[80%] bg-neutral-200">
+        <img
+          src={boxImg}
+          alt={boxImgAlt}
+          className="object-cover hover:scale-110 ease-out duration-200"
+        />
+      </div>
+      <div className="w-full h-[20%] p-2 flex flex-col items-center justify-center">
+        <h2 className="text-xl ">{boxTitle ? boxTitle : "Box Title"}</h2>
+      </div>
     </div>
   );
 };

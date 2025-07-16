@@ -37,7 +37,7 @@ export default function MobileMenu() {
           {/* Close Button */}
           <button
             onClick={() => setIsOpen(false)}
-            className="mb-4 rounded-md text-white cursor-pointer transition-all hover:scale-105 duration-300 ease-out"
+            className="mb-4 rounded-md text-text cursor-pointer transition-all hover:scale-105 duration-300 ease-out"
             aria-label="Close menu"
           >
             <X className="size-[28px]" />
@@ -45,7 +45,7 @@ export default function MobileMenu() {
 
           {/* Menu content goes here */}
           <p className="text-sm text-zinc-600 mt-10">Navigation</p>
-          <nav className="w-full flex mt-4 text-white">
+          <nav className="w-full flex mt-4 text-text">
             <ul className="w-full flex flex-col px-2 items-start gap-5">
               <li>
                 <a
@@ -107,7 +107,7 @@ export default function MobileMenu() {
           </nav>
           <div className="flex flex-col gap-2 mt-8">
             <a
-              className={`flex md:hidden text-xs font-semibold px-4 py-2 border border-white text-white rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
+              className={`flex md:hidden text-xs font-semibold px-4 py-2 border border-text text-text rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
               href="/"
             >
               Contact Us
