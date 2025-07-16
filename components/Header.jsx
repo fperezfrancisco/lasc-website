@@ -32,7 +32,7 @@ const Header = () => {
     : "bg-transparent";
   return (
     <header
-      className={`w-full max-w-[2000px] px-4 lg:px-6 py-2 sticky z-50 top-0 mx-auto h-fit flex items-center justify-between 
+      className={`w-full px-4 lg:px-6 py-2 sticky z-50 top-0 mx-auto h-fit flex items-center justify-between 
       ${isScrolled ? "shadow-md" : ""} ${backgroundClass}
       `}
     >

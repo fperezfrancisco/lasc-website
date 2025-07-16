@@ -46,7 +46,7 @@
 .dark {
   --color-primary: 0, 0, 0; /* black */
   --color-text: 255, 255, 255; /* white */
-  --background: oklch(0.145 0 0);
+  --background: linear-gradient(to bottom, #000000, #2c0404);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -90,7 +90,6 @@ html {
 html.dark {
   --color-primary: 0, 0, 0;
   --color-text: 255, 255, 255;
-
   --color-accent: 197, 16, 16; /* Keep accent values consistent */
   --color-accent-dark: 146, 12, 12;
   --color-accent-extra-dark: 44, 4, 4;
@@ -140,6 +139,10 @@ html.dark {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html.dark {
+    --background: linear-gradient(to bottom, #000000, #2c0404);
+    background: var(--background) !important;
   }
 }
 

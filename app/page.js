@@ -9,6 +9,8 @@ import HeroSection from "@/components/HeroSection";
 import QuickActionsSection from "@/components/QuickActionsSection";
 import LandingAboutSection from "@/components/LandingAboutSection";
 import StatSection from "@/components/StatSection";
+import LandingNewsSection from "@/components/LandingNewsSection";
+import Footer from "@/components/Footer";
 
 /** bg-linear-180 from-[#0a0a0a] to-[#2C0404] dark:bg-linear-180 dark:from-[#0a0a0a] dark:to-[#2C0404] */
 
@@ -26,16 +28,18 @@ export default function Home() {
 
   const isDark = resolvedTheme === "dark";
   return (
-    <div
-      className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-primary text-text ${
-        isDark ? "bg-gradient-to-b from-[#0a0a0a] to-[#2C0404]" : "bg-white"
-      } `}
-    >
+    <>
       <Header />
-      <HeroSection />
-      <QuickActionsSection isDark={isDark} />
-      <LandingAboutSection />
-      <StatSection />
-    </div>
+      <div
+        className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-transparent text-text `}
+      >
+        <HeroSection />
+        <QuickActionsSection isDark={isDark} />
+        <LandingAboutSection />
+        <StatSection />
+        <LandingNewsSection />
+      </div>
+      <Footer />
+    </>
   );
 }
