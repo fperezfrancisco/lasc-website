@@ -26,12 +26,12 @@ export default function Home() {
   return (
     <div
       className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-primary text-text ${
-        isDark ? "bg-gradient-to-b from-[#0a0a0a] to-[#2C0404]" : "bg-primary"
+        isDark ? "bg-gradient-to-b from-[#0a0a0a] to-[#2C0404]" : "bg-white"
       } `}
     >
       <Header />
       <HeroSection />
-      <QuickActionsSection />
+      <QuickActionsSection isDark={isDark} />
     </div>
   );
 }
