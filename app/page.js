@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import HeroSection from "@/components/HeroSection";
 import QuickActionsSection from "@/components/QuickActionsSection";
+import LandingAboutSection from "@/components/LandingAboutSection";
+import StatSection from "@/components/StatSection";
 
 /** bg-linear-180 from-[#0a0a0a] to-[#2C0404] dark:bg-linear-180 dark:from-[#0a0a0a] dark:to-[#2C0404] */
 
@@ -32,6 +34,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <QuickActionsSection isDark={isDark} />
+      <LandingAboutSection />
+      <StatSection />
     </div>
   );
 }

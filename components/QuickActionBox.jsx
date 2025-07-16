@@ -14,6 +14,7 @@ const QuickActionBox = ({
 }) => {
   return (
     <div
+      id="quickActionBox"
       className={`aspect-square rounded-[8px] border flex flex-col items-center overflow-hidden
       ${
         isDark
@@ -22,15 +23,17 @@ const QuickActionBox = ({
       }
     `}
     >
-      <div className="w-full h-[80%] bg-neutral-200">
+      <div className="w-full h-[80%] xl:h-[85%] bg-neutral-200 overflow-hidden">
         <img
           src={boxImg}
           alt={boxImgAlt}
-          className="object-cover hover:scale-110 ease-out duration-200"
+          className="object-cover object-center h-full w-auto hover:scale-110 ease-out duration-200"
         />
       </div>
-      <div className="w-full h-[20%] p-2 flex flex-col items-center justify-center">
-        <h2 className="text-xl ">{boxTitle ? boxTitle : "Box Title"}</h2>
+      <div className="w-full h-[20%] xl:h-[15%] p-2 flex flex-col items-center justify-center">
+        <h2 className="text-md xl:text-xl ">
+          {boxTitle ? boxTitle : "Box Title"}
+        </h2>
       </div>
     </div>
   );
