@@ -10,6 +10,10 @@ const SLIDE_INTERVAL = 8000;
 
 const slides = [
   {
+    image: "/heroImgs/hero-large.png",
+    noOverlay: true,
+  },
+  {
     image: "/soccerPlayerHero.jpg",
     heading: "We are Lasc-scv",
     text: "Learn more about our mission, values, and team.",

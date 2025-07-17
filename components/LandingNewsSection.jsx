@@ -22,7 +22,7 @@ const NewsLandingBox = ({ newsImg, newsImgLarge, newsDate }) => {
 
 const LandingNewsSection = () => {
   return (
-    <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[120px] flex flex-col gap-4 md:gap-8 md:gap-10 xl:gap-18 items-center">
+    <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[96px] flex flex-col gap-4 md:gap-8 md:gap-10 xl:gap-18 items-center">
       <div className="flex flex-col items-center text-center">
         <h3 className="text-md font-italic text-text">News & Updates</h3>
         <h2 className="text-2xl lg:text-3xl font-extrabold uppercase text-text">

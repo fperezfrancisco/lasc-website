@@ -3,7 +3,7 @@ import QuickActionBox from "./QuickActionBox";
 
 const QuickActionsSection = ({ isDark }) => {
   return (
-    <section className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[120px] flex flex-col gap-8 md:gap-12 items-center">
+    <section className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[96px] flex flex-col gap-8 md:gap-12 items-center">
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase">
         Elite Development is Here
       </h2>

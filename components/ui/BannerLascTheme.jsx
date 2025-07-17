@@ -4,7 +4,7 @@ const BannerLascTheme = ({ children }) => {
   return (
     <div
       id="lascBanner"
-      className="w-full h-full flex items-center justify-center px-4 py-[64px] rounded-[8px] bg-red-100 min-h-[265px] relative"
+      className="w-full h-full flex items-center justify-center px-4 py-[64px] rounded-[8px] bg-red-100 min-h-[265px] relative overflow-hidden"
     >
       <img
         src="/noise-img.png"
