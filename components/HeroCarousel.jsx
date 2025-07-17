@@ -11,6 +11,7 @@ const SLIDE_INTERVAL = 8000;
 const slides = [
   {
     image: "/heroImgs/hero-large.png",
+    imageSmall: "/heroImgs/heroVertical.png",
     noOverlay: true,
   },
   {

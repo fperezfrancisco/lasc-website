@@ -3,8 +3,6 @@ import PictureAndPara from "./ui/PictureAndPara";
 
 const LandingAboutSection = () => {
   return (
-    <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[96px] flex flex-col-reverse lg:flex-row gap-4 md:gap-8 md:gap-10 xl:gap-18 items-center">
-      <div className="w-full">
     <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[120px] flex flex-col-reverse lg:flex-row gap-4 md:gap-8 lg:gap-10 xl:gap-18 items-center">
       {/* <div className="w-full">
         <div className="w-full h-full aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">

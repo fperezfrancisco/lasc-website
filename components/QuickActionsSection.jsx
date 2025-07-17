@@ -20,7 +20,7 @@ const QuickActionsSection = ({ isDark }) => {
         />
         <QuickActionBox
           isDark={isDark}
-          boxTitle={"Tryout Information"}
+          boxTitle={"Tryout Info"}
           boxImg={"/tryout.jpg"}
         />
         <QuickActionBox
