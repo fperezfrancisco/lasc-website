@@ -1,9 +1,12 @@
 import React from "react";
+import PictureAndPara from "./ui/PictureAndPara";
 
 const LandingAboutSection = () => {
   return (
     <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[96px] flex flex-col-reverse lg:flex-row gap-4 md:gap-8 md:gap-10 xl:gap-18 items-center">
       <div className="w-full">
+    <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[120px] flex flex-col-reverse lg:flex-row gap-4 md:gap-8 lg:gap-10 xl:gap-18 items-center">
+      {/* <div className="w-full">
         <div className="w-full h-full aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">
           <img src="/youthSoccer1.jpg" className="w-full object-cover" />
         </div>
@@ -25,7 +28,15 @@ const LandingAboutSection = () => {
           lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in
           elementum tellus.
         </p>
-      </div>
+      </div>{" "}
+      */}
+      <PictureAndPara
+        title={"We Are LASC-SCV"}
+        image="/youthSoccer1.jpg"
+        text={
+          "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus."
+        }
+      />
     </div>
   );
 };
