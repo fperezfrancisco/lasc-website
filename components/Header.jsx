@@ -36,12 +36,15 @@ const Header = () => {
       ${isScrolled ? "shadow-md" : ""} ${backgroundClass}
       `}
     >
-      <span className="h-fit">
-        <img
-          src="/lasc-black-logo.png"
-          className="w-[32px] md:w-[40px] lg:w-[48px] h-auto"
-        />
-      </span>
+      <a href="/">
+        <span className="h-fit">
+          <img
+            src="/lasc-black-logo.png"
+            className="w-[32px] md:w-[40px] lg:w-[48px] h-auto"
+          />
+        </span>
+      </a>
+
       <nav className="hidden text-text xl:flex items-center mx-4">
         <ul className="w-full flex items-center gap-5">
           <li>

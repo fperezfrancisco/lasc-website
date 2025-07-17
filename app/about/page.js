@@ -9,6 +9,7 @@ import BannerLascTheme from "@/components/ui/BannerLascTheme";
 import { staff } from "../../lib/data/staff";
 import StaffCard from "@/components/ui/StaffCard";
 import Footer from "@/components/Footer";
+import TimelineGraphic from "@/components/TimelineGraphic";
 
 export default function About() {
   const { resolvedTheme } = useTheme();
@@ -48,7 +49,9 @@ export default function About() {
           />
         </section>
 
-        <BannerLascTheme></BannerLascTheme>
+        <BannerLascTheme timeline={true}>
+          <TimelineGraphic />
+        </BannerLascTheme>
         <section className="mt-12 w-full flex flex-col items-center gap-5 mb-12">
           <PictureAndPara
             title={"Our Mission Statement"}

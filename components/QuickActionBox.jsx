@@ -23,15 +23,16 @@ const QuickActionBox = ({
       }
     `}
     >
-      <div className="w-full h-[80%] xl:h-[85%] bg-neutral-200 overflow-hidden">
+      <div className="w-full h-[80%] xl:h-[85%] bg-neutral-200 overflow-hidden relative">
+        <div className="hidden absolute inset-0 w-full h-full bg-red-600/40 z-0"></div>
         <img
           src={boxImg}
           alt={boxImgAlt}
-          className="object-cover duration-300 ease-out transition-all object-center h-full w-auto hover:scale-110 ease-out duration-200"
+          className="object-cover w-full duration-300 ease-out transition-all object-bottom hover:scale-110 ease-out duration-200"
         />
       </div>
       <div className="w-full h-[20%] xl:h-[15%] p-2 flex flex-col items-center justify-center">
-        <h2 className="text-md xl:text-lg font-extrabold uppercase">
+        <h2 className="text-md xl:text-lg font-medium capitalize">
           {boxTitle ? boxTitle : "Box Title"}
         </h2>
       </div>

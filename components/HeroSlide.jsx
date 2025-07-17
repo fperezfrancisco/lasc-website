@@ -29,7 +29,6 @@ export function HeroSlide({
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
-
       {!noOverlay && <div className="absolute inset-0 bg-black/50" />}
       {/* overlay */}
       <div className="relative z-10 flex flex-col justify-center items-start h-full p-6 sm:p-10 text-white space-y-0">

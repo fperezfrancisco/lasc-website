@@ -11,22 +11,22 @@ const QuickActionsSection = ({ isDark }) => {
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Our Teams"}
-          boxImg={"/ourTeams2.jpg"}
+          boxImg={"/heroImgs/lascTeamGirls.png"}
         />
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Our Programs"}
-          boxImg={"/programs.jpg"}
+          boxImg={"/heroImgs/lascTraining2.png"}
         />
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Tryout Info"}
-          boxImg={"/tryout.jpg"}
+          boxImg={"/heroImgs/lascTraining.png"}
         />
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Get in Touch"}
-          boxImg={"/getInTouch.jpg"}
+          boxImg={"/heroImgs/lascTraining2.png"}
         />
       </div>
     </section>
