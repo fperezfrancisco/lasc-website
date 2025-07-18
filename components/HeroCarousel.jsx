@@ -15,13 +15,6 @@ const slides = [
     noOverlay: true,
   },
   {
-    image: "/soccerPlayerHero.jpg",
-    heading: "We are Lasc-scv",
-    text: "Learn more about our mission, values, and team.",
-    buttonText: "Read More",
-    buttonLink: "/about",
-  },
-  {
     image: "/youthSoccerGirls.jpg",
     heading: "Upcoming Program",
     text: "Don’t miss our next training session. Register today!",
@@ -29,7 +22,7 @@ const slides = [
     buttonLink: "/programs",
   },
   {
-    image: "/",
+    image: "/soccerPlayerHero.jpg",
     heading: "Latest News",
     text: "Check out the most recent article about our academy’s success.",
     buttonText: "Read Article",
