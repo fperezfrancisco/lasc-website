@@ -2,7 +2,7 @@ import React from "react";
 
 const TimelineStem = ({ up, cardText, cardImg, year }) => {
   return (
-    <div className={`relative bg-white size-[16px] bg-white rounded-full z-30`}>
+    <div className={`relative bg-white size-[16px] rounded-full z-30`}>
       <div
         className={`absolute text-center z-20 text-white text-2xl md:text-3xl lg:text-4xl font-extrabold 
             ${

@@ -50,7 +50,7 @@ const Header = () => {
           <li>
             <a
               href="/"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               Home
             </a>
@@ -58,7 +58,7 @@ const Header = () => {
           <li>
             <a
               href="/about"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               About
             </a>
@@ -66,7 +66,7 @@ const Header = () => {
           <li>
             <a
               href="/teams"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               Teams
             </a>
@@ -74,7 +74,7 @@ const Header = () => {
           <li>
             <a
               href="/programs"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               Programs
             </a>
@@ -82,7 +82,7 @@ const Header = () => {
           <li>
             <a
               href="/"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               News & Updates
             </a>
@@ -90,7 +90,7 @@ const Header = () => {
           <li>
             <a
               href="/"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               Accomplishments
             </a>
@@ -98,7 +98,7 @@ const Header = () => {
           <li>
             <a
               href="/"
-              className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
             >
               Alumni
             </a>
