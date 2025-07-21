@@ -4,13 +4,7 @@ import React from "react";
 const TimelineStem = ({ up, cardText, cardImg, year, delay = 0 }) => {
   const [ref, inView] = useInViewOnce();
   return (
-    <div
-      ref={ref}
-      className={`relative bg-white size-[16px] bg-white rounded-full z-30 transition-opacity duration-700 ${
-        inView ? "opacity-100" : "opacity-0"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
+    <div className={`relative bg-white size-[16px] rounded-full z-30`}>
       <div
         className={`absolute text-center z-20 text-white text-2xl md:text-3xl lg:text-4xl font-extrabold transition-all duration-700 ${
           inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
