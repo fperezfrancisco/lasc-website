@@ -14,7 +14,7 @@ const MainHeroNewsBlock = ({
       <img
         src={newsImgWide}
         alt=""
-        className="w-auto h-full sm:w-full sm:h-auto lg:w-auto lg:h-full xl:w-full xl:h-auto"
+        className="w-auto h-full sm:w-full sm:h-auto lg:w-auto lg:h-full xl:w-full xl:h-auto object-cover"
       />
     </div>
     <div className="absolute inset-0 bg-black/50 z-0"></div>
@@ -43,9 +43,9 @@ const NewsPageHero = () => {
   return (
     <section className="w-full px-4 lg:px-6 py-4 grid grid-cols-1 grid-rows-2 lg:grid-cols-7 gap-4">
       <MainHeroNewsBlock
-        newsTitle={"LASC B2011 Wins NPL Colorado Finals"}
+        newsTitle={"LASC B2011 National Cup Finals Champions"}
         newsDate={"July 25, 2025"}
-        newsImgWide={"/youthSoccer2.jpg"}
+        newsImgWide={"/lasc-national-champs-wide.jpg"}
       />
       <SubHeroNewsBlock />
       <SubHeroNewsBlock />

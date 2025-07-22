@@ -10,10 +10,14 @@ import LightModeSwitch from "./ui/LightModeSwitch";
 import { Menu } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import { useTheme } from "next-themes";
+import { navList } from "@/lib/data/navList";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { resolvedTheme } = useTheme();
+
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
@@ -47,62 +51,24 @@ const Header = () => {
 
       <nav className="hidden text-text xl:flex items-center mx-4">
         <ul className="w-full flex items-center gap-5">
-          <li>
-            <a
-              href="/"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="/about"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="/teams"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              Teams
-            </a>
-          </li>
-          <li>
-            <a
-              href="/programs"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              Programs
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              News & Updates
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              Accomplishments
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="font-semibold text-sm lg:text-lg hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-            >
-              Alumni
-            </a>
-          </li>
+          {navList.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.name}>
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`font-semibold text-sm lg:text-md ${
+                    isActive
+                      ? "text-red-500 underline underline-offset-10"
+                      : "text-text"
+                  } decoration-2 focus:text-red-500 hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <div className="flex items-center gap-4">
