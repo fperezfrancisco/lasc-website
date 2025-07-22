@@ -97,7 +97,7 @@ export function HeroCarousel() {
 
       {/* Navigation buttons */}
       <button
-        className="absolute cursor-pointer hover:bg-red-600 left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
+        className="absolute cursor-pointer hover:bg-red-600 left-2 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
         onClick={() => {
           emblaApi && emblaApi.scrollPrev();
           resetTimer();
@@ -107,7 +107,7 @@ export function HeroCarousel() {
       </button>
 
       <button
-        className="absolute cursor-pointer hover:bg-red-600 right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
+        className="absolute cursor-pointer hover:bg-red-600 right-2 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
         onClick={() => {
           emblaApi && emblaApi.scrollNext();
           resetTimer();

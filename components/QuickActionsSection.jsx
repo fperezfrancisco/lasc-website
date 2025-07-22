@@ -29,7 +29,12 @@ const QuickActionsSection = ({ isDark }) => {
           isDark={isDark}
           boxTitle={"Tryout Info"}
           boxImg={"/heroImgs/lascTraining.png"}
-          boxAction={() => router.push("/")}
+          boxAction={() =>
+            window.open(
+              "https://lascscv.byga.net/tryouts/3hi1j6z0od/signup?tryout_id=3hi1j6z0od",
+              "_blank"
+            )
+          }
         />
         <QuickActionBox
           isDark={isDark}

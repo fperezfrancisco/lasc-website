@@ -62,14 +62,15 @@ export default function MobileMenu() {
           </nav>
           <div className="flex flex-col gap-2 mt-8">
             <a
-              className={`flex md:hidden text-xs font-semibold px-4 py-2 border border-text text-text rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
+              className={`flex md:hidden text-xs font-bold px-4 py-2 border border-text text-text rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
               href="/"
             >
               Contact Us
             </a>
             <a
-              className="flex md:hidden text-xs font-semibold px-4 py-2 rounded-[8px] bg-[#C51010] hover:bg-[#920C0C] text-white"
-              href="/"
+              className="flex md:hidden text-xs font-bold px-4 py-2 rounded-[8px] bg-[#C51010] hover:bg-[#920C0C] text-white"
+              href="https://lascscv.byga.net/tryouts/3hi1j6z0od/signup?tryout_id=3hi1j6z0od"
+              target="_blank"
             >
               Tryout Form
             </a>

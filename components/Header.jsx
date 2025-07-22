@@ -74,14 +74,15 @@ const Header = () => {
       <div className="flex items-center gap-4">
         <div className="flex gap-2">
           <a
-            className={`hidden md:flex text-xs font-semibold px-4 py-2 border rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
+            className={`hidden md:flex text-xs font-bold px-4 py-2 border rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
             href="/"
           >
             Contact Us
           </a>
           <a
-            className="hidden md:flex text-xs font-semibold px-4 py-2 rounded-[8px] bg-[#C51010] hover:bg-[#920C0C] text-white"
-            href="/"
+            className="hidden md:flex text-xs font-bold px-4 py-2 rounded-[8px] bg-[#C51010] hover:bg-[#920C0C] text-white"
+            href="https://lascscv.byga.net/tryouts/3hi1j6z0od/signup?tryout_id=3hi1j6z0od"
+            target="_blank"
           >
             Tryout Form
           </a>
