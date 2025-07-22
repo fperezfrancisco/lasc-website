@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import QuickActionBox from "./QuickActionBox";
-import { useNavigate } from "react-router-dom";
 import { useRouter } from "next/navigation";
 
 const QuickActionsSection = ({ isDark }) => {
