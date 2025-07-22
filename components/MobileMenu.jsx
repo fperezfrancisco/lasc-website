@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import LightModeSwitch from "./ui/LightModeSwitch";
+import { navList } from "@/lib/data/navList";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,62 +48,16 @@ export default function MobileMenu() {
           <p className="text-sm text-zinc-600 mt-10">Navigation</p>
           <nav className="w-full flex mt-4 text-text">
             <ul className="w-full flex flex-col px-2 items-start gap-5">
-              <li>
-                <a
-                  href="/"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/about"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/teams"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  Teams
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/programs"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  Programs
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  News & Updates
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  Accomplishments
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
-                >
-                  Alumni
-                </a>
-              </li>
+              {navList.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="font-semibold text-sm hover:text-red-500 hover:underline hover:underline-offset-10 transition-all duration-200 ease-out"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="flex flex-col gap-2 mt-8">
