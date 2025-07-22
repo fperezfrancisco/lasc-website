@@ -40,12 +40,12 @@ const SubHeroNewsBlock = ({
   newsAction,
   newsTextPreview,
 }) => (
-  <div className="row-span-1 w-full h-full min-h-[275px] lg:min-h-0 lg:w-full lg:h-full col-span-1 lg:col-span-3  rounded-[8px] grid grid-cols-2 gap-4">
-    <div className="bg-neutral-200 rounded-[4px] w-full h-full overflow-hidden">
+  <div className="row-span-1 w-full h-full min-h-[275px] lg:min-h-0 lg:w-full lg:h-full col-span-1 lg:col-span-3 rounded-[8px] grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+    <div className="bg-neutral-200 rounded-[4px] aspect-video sm:aspect-[unset] w-full h-full overflow-hidden">
       <img
         src={newsImgWide}
         alt=""
-        className="object-cover h-full max-h-[500px]"
+        className="object-cover h-auto w-full sm:h-full"
       />
     </div>
     <div className="w-full h-full flex flex-col items-start justify-end py-2">
