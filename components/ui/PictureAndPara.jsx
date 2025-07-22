@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { useState, useEffect } from "react";
 
@@ -15,7 +16,13 @@ const PictureAndPara = ({
         <>
           <div className="w-full">
             <div className="w-full h-full aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">
-              <img src={image} className="w-full object-cover" />
+              <Image
+                width={900}
+                height={900}
+                alt="Para Image"
+                src={image}
+                className="w-full object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col items-start w-full lg:max-w-[800px] ">
@@ -39,7 +46,13 @@ const PictureAndPara = ({
           </div>
           <div className="w-full">
             <div className="w-full h-full aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">
-              <img src={image} className="w-full object-cover" />
+              <Image
+                width={900}
+                height={900}
+                alt="Para Image"
+                src={image}
+                className="w-full object-cover"
+              />
             </div>
           </div>
         </>

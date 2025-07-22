@@ -4,7 +4,7 @@ import BannerLascTheme from "./ui/BannerLascTheme";
 const StatBox = ({ statNumber, statText }) => {
   return (
     <div className="flex flex-col items-center text-center text-text gap-0">
-      <p className="font-extrabold text-6xl lg:text-7xl ">{statNumber}</p>
+      <p className="font-extrabold text-5xl lg:text-6xl ">{statNumber}</p>
       <p className=" text-xs sm:text-md lg:text-lg">{statText}</p>
     </div>
   );

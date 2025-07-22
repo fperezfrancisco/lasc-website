@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const QuickActionBox = ({
@@ -29,10 +30,12 @@ const QuickActionBox = ({
         onClick={boxAction}
       >
         <div className="hidden absolute inset-0 w-full h-full bg-red-600/40 z-0"></div>
-        <img
+        <Image
           src={boxImg}
-          alt={boxImgAlt}
+          alt={boxImgAlt ? boxImgAlt : "quickbox image"}
           className="object-cover w-full duration-300 ease-out transition-all object-bottom hover:scale-110 ease-out duration-200"
+          width={500}
+          height={500}
         />
       </div>
       <div

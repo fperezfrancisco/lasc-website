@@ -44,7 +44,7 @@ export default function Programs() {
                   className="object-cover object-center h-full w-auto sm:h-auto sm:w-full"
                 />
                 <div className="absolute w-full inset-0 h-full bg-black/50 z-10"></div>
-                <div className="absolute z-20 w-full inset-0 h-full flex flex-col items-start justify-center p-4">
+                <div className="absolute z-20 w-full inset-0 h-full flex flex-col items-start justify-center p-4 text-white">
                   <h2 className="text-4xl sm:text-5xl lg:text-6xl uppercase font-extrabold">
                     Featured Program
                   </h2>
