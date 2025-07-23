@@ -28,11 +28,11 @@ export default function About() {
     return member.title === "Coach";
   });
 
-  const [isVisible, setIsVisible] = useState(false);
+//   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    setIsVisible(true); 
-  }, [])
+//   useEffect(() => {
+//     setIsVisible(true); 
+//   }, [])
 
   return (
     <>
@@ -41,8 +41,7 @@ export default function About() {
         className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen text-text`}
         >
             {/* About section starts here */}
-            {/* <main className="mt-12 w-full flex flex-col gap-5 px-4"> */}
-            <main className={`transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'} mt-12 w-full flex flex-col gap-5 px-4`}>
+            <main className="mt-12 w-full flex flex-col gap-5 px-4">
                 <section className="w-full flex flex-col items-center gap-5 mb-12">
                 <h1 className="w-fit text-center text-4xl font-bold mb-4 border-b-4 border-black dark:border-white px-4 py-2">
                     About Us
