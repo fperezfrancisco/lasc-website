@@ -11,9 +11,11 @@ const PrimaryButton = ({
   minWidth,
   minHeight,
   roundedNumber,
+  action,
 }) => {
   return (
     <button
+      onClick={action}
       className={`
     ${bgColor ? `bg-[${bgColor}]` : "bg-[#C51010] hover:bg-[#920C0C]"}
     ${textColor ? `text-[${textColor}]` : "text-white"}
@@ -24,7 +26,7 @@ const PrimaryButton = ({
     ${minWidth ? `min-w-[${minWidth}]` : "min-w-[140px]"}
     ${minHeight ? `min-h-[${minHeight}]` : "min-h-0"}
     ${roundedNumber ? `rounded-[${roundedNumber}]` : "rounded-[8px]"}
-    px-2 py-3 transition-all duration-300 ease-out cursor-pointer text-xs font-semibold
+    px-2 py-3 transition-all duration-300 ease-out cursor-pointer text-xs font-bold
   `}
     >
       {buttonText ? buttonText : "Primary"}

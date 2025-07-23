@@ -29,7 +29,7 @@ const LandingNewsSection = () => {
           Stay Informed On What's New
         </h2>
       </div>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 xl:gap-12">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 xl:gap-6">
         <NewsLandingBox
           newsImg={"/affiliation.png"}
           newsImgLarge={"/affiliationLarge.png"}
@@ -43,6 +43,11 @@ const LandingNewsSection = () => {
         <NewsLandingBox
           newsImg={"/clubAmerica.png"}
           newsImgLarge={"/americaLarge.png"}
+          newsDate={"May 31, 2025"}
+        />
+        <NewsLandingBox
+          newsImg={"/eliteRoots.png"}
+          newsImgLarge={"/rootsLarge.png"}
           newsDate={"May 31, 2025"}
         />
         <NewsLandingBox

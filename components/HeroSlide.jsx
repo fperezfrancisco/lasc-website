@@ -1,4 +1,8 @@
+"use client";
 import Link from "next/link";
+import SecondaryButton from "./SecondaryButton";
+import { useRouter } from "next/navigation";
+import PrimaryButton from "./PrimaryButton";
 
 export function HeroSlide({
   image,
@@ -9,6 +13,7 @@ export function HeroSlide({
   buttonLink,
   noOverlay,
 }) {
+  const router = useRouter();
   return (
     <div className="relative w-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] bg-cover bg-center rounded-[8px] bg-neutral-200 overflow-hidden px-[32px]">
       {imageSmall ? (
@@ -31,18 +36,19 @@ export function HeroSlide({
       )}
       {!noOverlay && <div className="absolute inset-0 bg-black/50" />}
       {/* overlay */}
-      <div className="relative z-10 flex flex-col justify-center items-start h-full p-6 sm:p-10 text-white space-y-0">
-        <h2 className="text-2xl sm:text-4xl lg:text-6xl uppercase font-extrabold">
+      <div className="relative z-10 flex flex-col justify-end pb-12 md:pb-none md:justify-center items-start h-full p-6 sm:p-10 text-white space-y-0">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl uppercase font-extrabold">
           {heading}
         </h2>
-        <p className="text-sm sm:text-base max-w-lg">{text}</p>
+        <p className="text-sm sm:text-base max-w-lg mt-2 mb-4 w-[75%]">
+          {text}
+        </p>
         {buttonLink && (
-          <Link
-            href={buttonLink}
-            className="mt-8 px-4 py-2 bg-white text-black font-semibold rounded hover:bg-gray-100 transition"
-          >
-            {buttonText}
-          </Link>
+          <PrimaryButton
+            width={"200px"}
+            buttonText={buttonText}
+            action={() => router.push(buttonLink)}
+          />
         )}
       </div>
     </div>

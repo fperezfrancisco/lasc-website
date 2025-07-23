@@ -15,13 +15,6 @@ const slides = [
     noOverlay: true,
   },
   {
-    image: "/soccerPlayerHero.jpg",
-    heading: "We are Lasc-scv",
-    text: "Learn more about our mission, values, and team.",
-    buttonText: "Read More",
-    buttonLink: "/about",
-  },
-  {
     image: "/youthSoccerGirls.jpg",
     heading: "Upcoming Program",
     text: "Don’t miss our next training session. Register today!",
@@ -29,7 +22,7 @@ const slides = [
     buttonLink: "/programs",
   },
   {
-    image: "/",
+    image: "/soccerPlayerHero.jpg",
     heading: "Latest News",
     text: "Check out the most recent article about our academy’s success.",
     buttonText: "Read Article",
@@ -104,7 +97,7 @@ export function HeroCarousel() {
 
       {/* Navigation buttons */}
       <button
-        className="absolute cursor-pointer hover:bg-red-600 left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
+        className="absolute cursor-pointer hover:bg-red-600 left-2 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
         onClick={() => {
           emblaApi && emblaApi.scrollPrev();
           resetTimer();
@@ -114,7 +107,7 @@ export function HeroCarousel() {
       </button>
 
       <button
-        className="absolute cursor-pointer hover:bg-red-600 right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
+        className="absolute cursor-pointer hover:bg-red-600 right-2 top-1/2 -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
         onClick={() => {
           emblaApi && emblaApi.scrollNext();
           resetTimer();

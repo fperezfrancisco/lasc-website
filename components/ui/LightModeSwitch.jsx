@@ -10,7 +10,8 @@ export default function LightModeSwitch() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+  if (!mounted)
+    return <div className="bg-neutral-200 rounded-full w-[64px] h-8"></div>;
 
   const isDark = resolvedTheme === "dark";
 

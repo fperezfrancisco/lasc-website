@@ -11,9 +11,11 @@ const SecondaryButton = ({
   minWidth,
   minHeight,
   roundedNumber,
+  action,
 }) => {
   return (
     <button
+      onClick={action}
       className={`
 ${
   bgColor
@@ -28,7 +30,7 @@ ${maxHeight ? `max-h-[${maxHeight}]` : "max-h-none"}
 ${minWidth ? `min-w-[${minWidth}]` : "min-w-[120px]"}
 ${minHeight ? `min-h-[${minHeight}]` : "min-h-0"}
 ${roundedNumber ? `rounded-[${roundedNumber}]` : "rounded-[8px]"}
-px-6 py-3 transition-all duration-300 ease-out cursor-pointer text-xs font-semibold
+px-6 py-3 transition-all duration-300 ease-out cursor-pointer text-xs font-bold
 `}
     >
       {buttonText ? buttonText : "Secondary"}
