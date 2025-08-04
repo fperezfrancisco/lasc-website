@@ -84,12 +84,11 @@ export function HeroCarousel() {
   }, [emblaApi, resetTimer]);
 
   useEffect(() => {
-    async function fetchSlides() {
+    async function getSlides() {
       try {
-        const res = await fetch("http://localhost:1337/api/slides?populate=*");
-        const json = await res.json();
-        console.log(json);
-        const slides = json.data.sort((a, b) => a.order - b.order);
+        const data = await fetchSlides();
+        console.log(data);
+        const slides = data.sort((a, b) => a.order - b.order);
         setHeroSlides(slides);
       } catch (err) {
         console.error("Failed to fetch slides:", err);
@@ -98,7 +97,7 @@ export function HeroCarousel() {
       }
     }
 
-    fetchSlides();
+    getSlides();
   }, []);
 
   return (

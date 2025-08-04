@@ -3,6 +3,7 @@ import Link from "next/link";
 import SecondaryButton from "./SecondaryButton";
 import { useRouter } from "next/navigation";
 import PrimaryButton from "./PrimaryButton";
+import { BASE_URL } from "@/utils/api";
 
 export function HeroSlide({
   image,
@@ -14,10 +15,8 @@ export function HeroSlide({
   noOverlay,
 }) {
   const router = useRouter();
-  const imageUrl = `http://localhost:1337${image.url}`;
-  const imageSmallUrl = imageSmall
-    ? `http://localhost:1337${imageSmall.url}`
-    : "";
+  const imageUrl = `${BASE_URL}${image.url}`;
+  const imageSmallUrl = imageSmall ? `${BASE_URL}${imageSmall.url}` : "";
   return (
     <div className="relative w-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] bg-cover bg-center rounded-[8px] bg-neutral-200 overflow-hidden px-[32px]">
       {imageSmall ? (
