@@ -5,10 +5,13 @@ import useEmblaCarousel from "embla-carousel-react";
 import { HeroSlide } from "./HeroSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { fetchSlides } from "@/utils/api";
 
 const SLIDE_INTERVAL = 8000;
 
-const slides = [
+{
+  /**
+   * const slides = [
   {
     image: "/heroImgs/hero-large.png",
     imageSmall: "/heroImgs/heroVertical.png",
@@ -29,11 +32,23 @@ const slides = [
     buttonLink: "/news",
   },
 ];
+   */
+}
+
+export async function getStaticSlides() {
+  const slides = await fetchSlides();
+  return {
+    props: { slides },
+    revalidate: 60,
+  };
+}
 
 export function HeroCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const timerRef = useRef(null);
+  const [heroSlides, setHeroSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Slide to next
   const scrollNext = useCallback(() => {
@@ -68,20 +83,42 @@ export function HeroCarousel() {
     };
   }, [emblaApi, resetTimer]);
 
+  useEffect(() => {
+    async function fetchSlides() {
+      try {
+        const res = await fetch("http://localhost:1337/api/slides?populate=*");
+        const json = await res.json();
+        console.log(json);
+        const slides = json.data.sort((a, b) => a.order - b.order);
+        setHeroSlides(slides);
+      } catch (err) {
+        console.error("Failed to fetch slides:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchSlides();
+  }, []);
+
   return (
     <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] overflow-hidden">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {slides.map((slide, idx) => (
-            <div className="min-w-full" key={idx}>
-              <HeroSlide {...slide} />
-            </div>
-          ))}
+          {loading ? (
+            <div className="min-w-full bg-neutral-200 animate-pulse"></div>
+          ) : (
+            heroSlides.map((slide, idx) => (
+              <div className="min-w-full" key={slide.id}>
+                <HeroSlide {...slide} />
+              </div>
+            ))
+          )}
         </div>
       </div>
       {/* Dot Pagination */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-        {slides.map((_, index) => (
+        {heroSlides.map((_, index) => (
           <button
             key={index}
             className={`w-3 h-3 rounded-full transition-colors ${

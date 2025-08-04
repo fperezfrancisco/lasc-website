@@ -14,24 +14,28 @@ export function HeroSlide({
   noOverlay,
 }) {
   const router = useRouter();
+  const imageUrl = `http://localhost:1337${image.url}`;
+  const imageSmallUrl = imageSmall
+    ? `http://localhost:1337${imageSmall.url}`
+    : "";
   return (
     <div className="relative w-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] bg-cover bg-center rounded-[8px] bg-neutral-200 overflow-hidden px-[32px]">
       {imageSmall ? (
         <>
           <div
             className="absolute inset-0 bg-cover bg-center sm:hidden"
-            style={{ backgroundImage: `url(${imageSmall})` }}
+            style={{ backgroundImage: `url(${imageSmallUrl})` }}
           />
 
           <div
             className="absolute inset-0 bg-cover bg-center hidden sm:block"
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ backgroundImage: `url(${imageUrl})` }}
           />
         </>
       ) : (
         <div
           className="absolute inset-0 bg-cover bg-center "
-          style={{ backgroundImage: `url(${image})` }}
+          style={{ backgroundImage: `url(${imageUrl})` }}
         />
       )}
       {!noOverlay && <div className="absolute inset-0 bg-black/50" />}
