@@ -10,6 +10,7 @@ import { staff } from "../../lib/data/staff";
 import StaffCard from "@/components/ui/StaffCard";
 import Footer from "@/components/Footer";
 import TimelineGraphic from "@/components/TimelineGraphic";
+import CoreValuesSection from "@/components/CoreValuesSection";
 
 const page = () => {
   const [mounted, setMounted] = useState(false);
@@ -29,7 +30,7 @@ const page = () => {
     return member.title === "Coach";
   });
 
-//   const [isVisible, setIsVisible] = useState(false);
+  //   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -48,10 +49,8 @@ const page = () => {
       >
         {/* About section starts here */}
         {/* <main className="mt-12 w-full flex flex-col gap-5 px-4"> */}
-        <main
-          className={`w-full flex flex-col gap-5 px-4`}
-        >
-        {/* <main
+        <main className={`w-full flex flex-col gap-5 px-4`}>
+          {/* <main
           className={`transition-opacity duration-1000 ease-in-out ${
             isVisible ? "opacity-100" : "opacity-0"
           } mt-12 w-full flex flex-col gap-5 px-4`}
@@ -84,6 +83,7 @@ const page = () => {
               }
             />
           </section>
+          <CoreValuesSection />
 
           {/* Staff Cards */}
           <section className="w-full flex flex-col mb-12 items-center gap-12">
