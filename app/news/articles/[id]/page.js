@@ -89,7 +89,7 @@ const page = () => {
                 className="w-full h-auto max-h-[700px] object-cover object-center"
               />
               {/* <div className="absolute w-full inset-0 h-full bg-black/50 z-10"></div> */}
-              <div className="absolute inset-0 bg-black/50 z-10"></div>
+              {/* <div className="absolute inset-0 bg-black/50 z-10"></div> */}
             </picture>
             {/* Quote here for the blog */}
             {/* Props would just need the quote prop to stick into the span */}
@@ -118,6 +118,7 @@ const page = () => {
                   newsTitle={news.title}
                   newsDate={news.createdAt}
                   newsImgWide={news.imgWide}
+                  newsImageLink={news.link}
                 />
               ))}
             </div>
