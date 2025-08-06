@@ -15,11 +15,13 @@ const slides = [
     noOverlay: true,
   },
   {
-    image: "/youthSoccerGirls.jpg",
-    heading: "Upcoming Program",
-    text: "Don’t miss our next training session. Register today!",
+    image: "/elite-roots-main.png",
+    imageSmall: "/elite-roots-small.png",
+    heading: "Elite Roots Program",
+    text: "Now enrolling players born 2019/2020 for our free Elite Roots Program. Contact Afsheen for more info.",
     buttonText: "View Program",
     buttonLink: "/programs",
+    noOverlay: true,
   },
   {
     image: "/soccerPlayerHero.jpg",

@@ -21,7 +21,7 @@ export default function Teams() {
     // setIsVisible(true);
   }, []);
 
-  if(!mounted){
+  if (!mounted) {
     return null;
   }
 
@@ -32,8 +32,8 @@ export default function Teams() {
         className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen text-text mb-12`}
       >
         {/* About section starts here */}
-        <main className="mt-12 w-full flex flex-col gap-5">
-        {/* <main
+        <main className=" w-full flex flex-col gap-5">
+          {/* <main
           className={`transition-opacity duration-1000 ease-in-out ${
             isVisible ? "opacity-100" : "opacity-0"
           } mt-12 w-full flex flex-col gap-5`}
