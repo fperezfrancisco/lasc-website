@@ -15,13 +15,9 @@ export default function Teams() {
   const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
-    setMounted(true);
-    // setIsVisible(true);
+    //setMounted(true);
+    setIsVisible(true);
   }, []);
-
-  if(!mounted){
-    return null;
-  }
 
   return (
     <>
@@ -30,12 +26,13 @@ export default function Teams() {
         className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen text-text mb-12`}
       >
         {/* About section starts here */}
-        <main className="mt-12 w-full flex flex-col gap-5">
-        {/* <main
+        {/** <main className=" w-full flex flex-col gap-5">*/}
+
+        <main
           className={`transition-opacity duration-1000 ease-in-out ${
             isVisible ? "opacity-100" : "opacity-0"
           } mt-12 w-full flex flex-col gap-5`}
-        > */}
+        >
           <section className="w-full flex justify-center mb-12">
             <h1 className="w-fit text-center text-4xl font-bold mb-4 border-b-4 border-black dark:border-white px-4 py-2">
               Teams
