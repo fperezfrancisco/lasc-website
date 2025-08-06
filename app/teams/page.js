@@ -10,14 +10,19 @@ import TeamCard from "@/components/ui/TeamCard";
 
 export default function Teams() {
   const [mounted, setMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const { resolvedTheme } = useTheme();
 
   const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
-    //setMounted(true);
+    setMounted(true);
     setIsVisible(true);
   }, []);
+
+  if(!mounted){
+    return null;
+  }
 
   return (
     <>
