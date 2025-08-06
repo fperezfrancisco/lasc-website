@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRightCircle } from "lucide-react";
 
 const MainHeroNewsBlock = ({
+  newsId,
   newsImgWide,
   newsImgSquare,
   newsImgPortrait,
@@ -26,12 +27,15 @@ const MainHeroNewsBlock = ({
       <h1 className="text-2xl md:text-3xl xl:text-4xl capitalize font-bold leading-none mb-4">
         {newsTitle}
       </h1>
-      <PrimaryButton buttonText={"Read Article"} width={"250px"} />
+      <Link href={`/news/articles/${newsId}`}>
+        <PrimaryButton buttonText={"Read Article"} width={"250px"} />
+      </Link>
     </div>
   </div>
 );
 
 const SubHeroNewsBlock = ({
+  newsId,
   newsImgWide,
   newsImgPortrait,
   newsImgSquare,
@@ -57,7 +61,7 @@ const SubHeroNewsBlock = ({
         {newsTextPreview}
       </p>
       <Link
-        href={"/"}
+        href={`/news/articles/${newsId}`}
         className="font-medium text-red-500 hover:text-red-700 text-xs md:text-sm flex items-center gap-2"
       >
         Read More <ArrowRightCircle className="size-4" />
@@ -66,25 +70,28 @@ const SubHeroNewsBlock = ({
   </div>
 );
 
-const NewsPageHero = () => {
+const NewsPageHero = ({ mainNewsArticle, subNewsOne, subNewsTwo }) => {
   return (
     <section className="w-full px-4 lg:px-6 py-4 grid grid-cols-1 grid-rows-2 lg:grid-cols-7 gap-4">
       <MainHeroNewsBlock
-        newsTitle={"LASC B2011 National Cup Finals Champions"}
-        newsDate={"July 25, 2025"}
-        newsImgWide={"/lasc-national-champs-wide.jpg"}
+        newsId={mainNewsArticle.id}
+        newsTitle={mainNewsArticle.title}
+        newsDate={mainNewsArticle.createdAt}
+        newsImgWide={mainNewsArticle.imgWide}
+        newsImgPortrait={mainNewsArticle.imgPortrait}
       />
       <SubHeroNewsBlock
-        newsTitle={"B2018 Win Socal Elite Tournament"}
-        newsDate={"July 20, 2025"}
-        newsImgWide={"/ourTeams2.jpg"}
-        newsTextPreview={
-          "A fantastic weekend for the LASC Boys 2018 Gold team, winning their first ever tournament this season!"
-        }
+        newsId={subNewsOne.id}
+        newsTitle={subNewsOne.title}
+        newsDate={subNewsOne.createdAt}
+        newsImgWide={"/youthSoccer1.jpg"}
+        newsImgPortrait={subNewsOne.imgPortrait}
+        newsTextPreview={subNewsOne.previewText}
       />
       <SubHeroNewsBlock
-        newsTitle={"G2014 Finalist at Summer Classic"}
-        newsDate={"July 20, 2025"}
+        newsId={subNewsTwo.id}
+        newsTitle={subNewsTwo.title}
+        newsDate={subNewsTwo.createdAt}
         newsImgWide={"/youthSoccer1.jpg"}
         newsTextPreview={
           "A fantastic weekend for the LASC Girls 2014 Team, reaching the Final at the Summer Classic Tournament!"
