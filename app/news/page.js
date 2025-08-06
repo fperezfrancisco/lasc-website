@@ -43,7 +43,13 @@ const page = () => {
                 key={article.id}
                 className="flex flex-col items-start gap-4rounded-[8px]"
               >
-                <div className="w-full aspect-video sm:aspect-4/3 bg-neutral-300 rounded-[8px]"></div>
+                <div className="w-full aspect-video sm:aspect-4/3 rounded-[8px] bg-neutral-200">
+                  <img
+                    src={article.imgWide}
+                    alt=""
+                    className="object-cover w-full h-full rounded-[8px]"
+                  />
+                </div>
                 <div className="w-full h-full flex flex-col items-start justify-end py-2">
                   <h2 className="leading-none font-semibold text-md md:text-lg">
                     {article.title}
