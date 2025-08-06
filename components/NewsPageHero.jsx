@@ -84,7 +84,7 @@ const NewsPageHero = ({ mainNewsArticle, subNewsOne, subNewsTwo }) => {
         newsId={subNewsOne.id}
         newsTitle={subNewsOne.title}
         newsDate={subNewsOne.createdAt}
-        newsImgWide={"/youthSoccer1.jpg"}
+        newsImgWide={subNewsOne.imgWide}
         newsImgPortrait={subNewsOne.imgPortrait}
         newsTextPreview={subNewsOne.previewText}
       />
@@ -92,7 +92,7 @@ const NewsPageHero = ({ mainNewsArticle, subNewsOne, subNewsTwo }) => {
         newsId={subNewsTwo.id}
         newsTitle={subNewsTwo.title}
         newsDate={subNewsTwo.createdAt}
-        newsImgWide={"/youthSoccer1.jpg"}
+        newsImgWide={subNewsTwo.imgWide}
         newsTextPreview={
           "A fantastic weekend for the LASC Girls 2014 Team, reaching the Final at the Summer Classic Tournament!"
         }

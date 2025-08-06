@@ -1,3 +1,4 @@
+import { allNews } from "@/lib/data/news";
 import React from "react";
 
 const NewsLandingBox = ({ newsImg, newsImgLarge, newsDate }) => {
@@ -29,32 +30,25 @@ const LandingNewsSection = () => {
           Stay Informed On What's New
         </h2>
       </div>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 xl:gap-6">
-        <NewsLandingBox
-          newsImg={"/affiliation.png"}
-          newsImgLarge={"/affiliationLarge.png"}
-          newsDate={"May 31, 2025"}
-        />
-        <NewsLandingBox
-          newsImg={"/clubAmerica.png"}
-          newsImgLarge={"/americaLarge.png"}
-          newsDate={"May 31, 2025"}
-        />
-        <NewsLandingBox
-          newsImg={"/clubAmerica.png"}
-          newsImgLarge={"/americaLarge.png"}
-          newsDate={"May 31, 2025"}
-        />
-        <NewsLandingBox
-          newsImg={"/eliteRoots.png"}
-          newsImgLarge={"/rootsLarge.png"}
-          newsDate={"May 31, 2025"}
-        />
-        <NewsLandingBox
-          newsImg={"/eliteRoots.png"}
-          newsImgLarge={"/rootsLarge.png"}
-          newsDate={"May 31, 2025"}
-        />
+      <div className="w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 xl:gap-6 hidden lg:grid">
+        {allNews.slice(0, 5).map((article) => (
+          <NewsLandingBox
+            key={article.id}
+            newsImg={article.imgPortrait}
+            newsImgLarge={article.imgPortrait}
+            newsDate={article.createdAt}
+          />
+        ))}
+      </div>
+      <div className="w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 xl:gap-6 grid lg:hidden">
+        {allNews.slice(0, 4).map((article) => (
+          <NewsLandingBox
+            key={article.id}
+            newsImg={article.imgPortrait}
+            newsImgLarge={article.imgPortrait}
+            newsDate={article.createdAt}
+          />
+        ))}
       </div>
     </div>
   );

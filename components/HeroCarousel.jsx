@@ -24,10 +24,11 @@ const slides = [
     noOverlay: true,
   },
   {
-    image: "/soccerPlayerHero.jpg",
+    image: "/national-wide.png",
+    imageSmall: "/champs-portrait.png",
     heading: "Latest News",
     text: "Check out the most recent article about our academy’s success.",
-    buttonText: "Read Article",
+    buttonText: "Check it out",
     buttonLink: "/news",
   },
 ];
