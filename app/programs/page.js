@@ -4,9 +4,7 @@ import "../globals.css";
 import Header from "@/components/Header";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { teams } from "../../lib/data/team";
 import Footer from "@/components/Footer";
-import TeamCard from "@/components/ui/TeamCard";
 import PictureAndPara from "@/components/ui/PictureAndPara";
 import PrimaryButton from "@/components/PrimaryButton";
 
@@ -16,11 +14,13 @@ export default function Programs() {
 
   const isDark = resolvedTheme === "dark";
 
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+      setMounted(true);
+    }, []);
+  
+    if (!mounted) {
+      return null; // optional: return loading spinner or blank
+    }
 
   return (
     <>
@@ -29,12 +29,12 @@ export default function Programs() {
         className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen text-text mb-12`}
       >
         {/* About section starts here */}
-        {/* <main className="mt-12 w-full flex flex-col gap-5"> */}
-        <main
+        <main className="mt-12 w-full flex flex-col gap-5">
+        {/* <main
           className={`transition-opacity duration-1000 ease-in-out ${
             isVisible ? "opacity-100" : "opacity-0"
           } w-full flex flex-col gap-5`}
-        >
+        > */}
           <section className="w-full flex flex-col items-center justify-center mb-12">
             <div className="w-full px-4 lg:px-6 py-4 flex">
               <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] bg-neutral-200 overflow-hidden">

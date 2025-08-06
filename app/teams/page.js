@@ -14,8 +14,6 @@ export default function Teams() {
 
   const isDark = resolvedTheme === "dark";
 
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     setMounted(true);
     // setIsVisible(true);
