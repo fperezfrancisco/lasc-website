@@ -6,14 +6,17 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import PictureAndPara from "@/components/ui/PictureAndPara";
 import BannerLascTheme from "@/components/ui/BannerLascTheme";
-import { staff } from "../../lib/data/staff";
+
 import StaffCard from "@/components/ui/StaffCard";
 import Footer from "@/components/Footer";
 import TimelineGraphic from "@/components/TimelineGraphic";
 import CoreValuesSection from "@/components/CoreValuesSection";
+import { getStaff } from "@/utils/api";
 
 const page = () => {
   const [mounted, setMounted] = useState(false);
+  const [staff, setStaff] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { resolvedTheme } = useTheme();
 
   const isDark = resolvedTheme === "dark";
@@ -35,6 +38,20 @@ const page = () => {
   useEffect(() => {
     setMounted(true);
     // setIsVisible(true);
+    async function loadStaff() {
+      try {
+        const data = await getStaff();
+        //console.log("Alumni Data: ", data);
+
+        setStaff(data);
+      } catch (err) {
+        console.error("Failed to load staff data:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadStaff();
   }, []);
 
   if (!mounted) {
@@ -95,40 +112,52 @@ const page = () => {
               </h2>
             </div>
             <div className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 justify-items-center mb-6">
-              {Executives.map((member, index) => (
-                <StaffCard
-                  key={index}
-                  name={member.name}
-                  position={member.position}
-                  image={member.img}
-                />
-              ))}
+              {Executives.length > 0
+                ? Executives.map((member, index) => (
+                    <StaffCard
+                      key={index}
+                      name={member.name}
+                      position={member.position}
+                      image={member.img}
+                    />
+                  ))
+                : Array(5)
+                    .fill(0)
+                    .map((_, index) => <StaffCard key={index} />)}
             </div>
             <h2 className="text-2xl lg:text-3xl font-extrabold uppercase text-text">
               2025/26 Club Directors
             </h2>
             <div className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center mb-6">
-              {Directors.map((member, index) => (
-                <StaffCard
-                  key={index}
-                  name={member.name}
-                  position={member.position}
-                  image={member.img}
-                />
-              ))}
+              {Directors.length > 0
+                ? Directors.map((member, index) => (
+                    <StaffCard
+                      key={index}
+                      name={member.name}
+                      position={member.position}
+                      image={member.img}
+                    />
+                  ))
+                : Array(3)
+                    .fill(0)
+                    .map((_, index) => <StaffCard key={index} />)}
             </div>
             <h2 className="text-2xl lg:text-3xl font-extrabold uppercase text-text">
               2025/26 Coaching Staff
             </h2>
             <div className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center mb-6">
-              {Coaches.map((member, index) => (
-                <StaffCard
-                  key={index}
-                  name={member.name}
-                  position={member.position}
-                  image={member.img}
-                />
-              ))}
+              {Coaches.length > 0
+                ? Coaches.map((member, index) => (
+                    <StaffCard
+                      key={index}
+                      name={member.name}
+                      position={member.position}
+                      image={member.img}
+                    />
+                  ))
+                : Array(6)
+                    .fill(0)
+                    .map((_, index) => <StaffCard key={index} />)}
             </div>
           </section>
         </main>

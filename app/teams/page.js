@@ -4,23 +4,40 @@ import "../globals.css";
 import Header from "@/components/Header";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { teams } from "../../lib/data/team";
+//import { teams } from "../../lib/data/team";
 import Footer from "@/components/Footer";
 import TeamCard from "@/components/ui/TeamCard";
+import { getTeams } from "@/utils/api";
 
 export default function Teams() {
   const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const { resolvedTheme } = useTheme();
+  const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
     setMounted(true);
     setIsVisible(true);
+    async function loadTeams() {
+      try {
+        const data = await getTeams();
+        //console.log("Alumni Data: ", data);
+
+        setTeams(data);
+      } catch (err) {
+        console.error("Failed to load teams data:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadTeams();
   }, []);
 
-  if(!mounted){
+  if (!mounted) {
     return null;
   }
 

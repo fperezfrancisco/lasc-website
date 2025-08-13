@@ -3,6 +3,7 @@ import ComingSoonPage from "@/components/ComingSoonPage";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { alumni } from "@/lib/data/alumni";
+import { getAlumni } from "@/utils/api";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 
@@ -18,10 +19,27 @@ export const AlumniBox = ({ alumni }) => (
 
 const page = () => {
   const [mounted, setMounted] = useState(false);
+  const [alumniData, setAlumniData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
+
+    async function loadAlumni() {
+      try {
+        const data = await getAlumni();
+        //console.log("Alumni Data: ", data);
+
+        setAlumniData(data);
+      } catch (err) {
+        console.error("Failed to load alumni data:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadAlumni();
   }, []);
 
   if (!mounted) {
@@ -51,7 +69,7 @@ const page = () => {
           </p>
         </section>
         <section className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-[1200px] mx-auto  items-center gap-5 mb-[48px]">
-          {alumni.map((alumni, idx) => (
+          {alumniData.map((alumni, idx) => (
             <AlumniBox key={idx} alumni={alumni} />
           ))}
         </section>

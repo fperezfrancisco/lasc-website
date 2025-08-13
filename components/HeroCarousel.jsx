@@ -4,39 +4,51 @@ import { useEffect, useCallback, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { HeroSlide } from "./HeroSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
+import { getSlides } from "@/utils/api"; // <-- Import Strapi fetcher
+import { getStrapiMedia } from "@/utils/media"; // <-- Optional media formatter
 
 const SLIDE_INTERVAL = 8000;
-
-const slides = [
-  {
-    image: "/heroImgs/hero-large.png",
-    imageSmall: "/heroImgs/heroVertical.png",
-    noOverlay: true,
-  },
-  {
-    image: "/elite-roots-main.png",
-    imageSmall: "/elite-roots-small.png",
-    heading: "Elite Roots Program",
-    text: "Now enrolling players born 2019/2020 for our free Elite Roots Program. Contact Afsheen for more info.",
-    buttonText: "View Program",
-    buttonLink: "/programs",
-    noOverlay: true,
-  },
-  {
-    image: "/national-wide.png",
-    imageSmall: "/champs-portrait.png",
-    heading: "Latest News",
-    text: "Check out the most recent article about our academy’s success.",
-    buttonText: "Check it out",
-    buttonLink: "/news",
-  },
-];
 
 export function HeroCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const timerRef = useRef(null);
+
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch slides from Strapi
+  useEffect(() => {
+    async function loadSlides() {
+      try {
+        const data = await getSlides();
+        console.log("Data: ", data);
+        const formatted = data.map((item) => {
+          console.log("Item: ", item);
+          return {
+            image: getStrapiMedia(item.image.url),
+            imageSmall: item.imageSmall
+              ? getStrapiMedia(item.imageSmall.url || item.image.url)
+              : "",
+            heading: item.heading,
+            text: item.text,
+            buttonText: item.buttonText,
+            buttonLink: item.buttonLink,
+            noOverlay: item.noOverlay || false,
+            order: item.order,
+          };
+        });
+        setSlides(formatted);
+        console.log(formatted);
+      } catch (err) {
+        console.error("Failed to load slides:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadSlides();
+  }, []);
 
   // Slide to next
   const scrollNext = useCallback(() => {
@@ -53,7 +65,7 @@ export function HeroCarousel() {
 
   // Setup autoplay
   useEffect(() => {
-    if (!emblaApi) return;
+    if (!emblaApi || !slides.length) return;
 
     const onSelect = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -69,19 +81,27 @@ export function HeroCarousel() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [emblaApi, resetTimer]);
+  }, [emblaApi, slides.length, resetTimer]);
+
+  if (loading)
+    return (
+      <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] overflow-hidden bg-neutral-100 animate-pulse"></div>
+    ); // Or add a loading spinner
 
   return (
     <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] overflow-hidden">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {slides.map((slide, idx) => (
-            <div className="min-w-full" key={idx}>
-              <HeroSlide {...slide} />
-            </div>
-          ))}
+          {slides
+            .sort((a, b) => a.order - b.order)
+            .map((slide, idx) => (
+              <div className="min-w-full" key={idx}>
+                <HeroSlide {...slide} />
+              </div>
+            ))}
         </div>
       </div>
+
       {/* Dot Pagination */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
         {slides.map((_, index) => (
