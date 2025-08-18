@@ -6,6 +6,7 @@ import { HeroSlide } from "./HeroSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getSlides } from "@/utils/api"; // <-- Import Strapi fetcher
 import { getStrapiMedia } from "@/utils/media"; // <-- Optional media formatter
+import { heroSlides } from "@/lib/data/heroSlides";
 
 const SLIDE_INTERVAL = 8000;
 
@@ -47,7 +48,7 @@ export function HeroCarousel() {
       }
     }
 
-    loadSlides();
+    //loadSlides();
   }, []);
 
   // Slide to next
@@ -85,7 +86,15 @@ export function HeroCarousel() {
 
   if (loading)
     return (
-      <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] overflow-hidden bg-neutral-100 animate-pulse"></div>
+      <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] overflow-hidden bg-neutral-100">
+        {heroSlides
+          .sort((a, b) => a.order - b.order)
+          .map((slide, idx) => (
+            <div className="min-w-full" key={idx}>
+              <HeroSlide {...slide} />
+            </div>
+          ))}
+      </div>
     ); // Or add a loading spinner
 
   return (

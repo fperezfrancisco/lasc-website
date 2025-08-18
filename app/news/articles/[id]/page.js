@@ -7,6 +7,8 @@ import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { allNews } from "@/lib/data/news";
+import { ArrowLeftSquare } from "lucide-react";
+import Link from "next/link";
 
 const page = () => {
   const [mounted, setMounted] = useState(false);
@@ -34,8 +36,8 @@ const page = () => {
   }
 
   const latestNews = [...allNews]
-  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-  .slice(0, 4);
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 4);
 
   const isDark = resolvedTheme === "dark";
   return (
@@ -47,6 +49,11 @@ const page = () => {
       <div
         className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-transparent text-text px-10 py-5`}
       >
+        <Link href={"/news"} className="flex items-center gap-2 pb-4">
+          <ArrowLeftSquare className="size-[32px] text-red-500" />
+          All News
+        </Link>
+
         <main className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-10 md:px-15 pb-24">
           <section className="lg:col-span-2 flex flex-col">
             {/* Headers like hashtag, title, and author */}

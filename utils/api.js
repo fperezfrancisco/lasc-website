@@ -25,7 +25,7 @@ export async function getSlides() {
 }
 
 export async function getNewsArticles() {
-  return await fetchAPI("/articles?populate=*");
+  return await fetchAPI("/news-medias?populate=*");
 }
 
 export async function getTeams() {
