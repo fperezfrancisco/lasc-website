@@ -21,7 +21,7 @@ async function fetchAPI(path, options = {}) {
 }
 
 export async function getSlides() {
-  return await fetchAPI("/slides?populate=*");
+  return await fetchAPI("/carousel-slides?populate=*");
 }
 
 export async function getNewsArticles() {

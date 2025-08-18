@@ -48,7 +48,7 @@ export function HeroCarousel() {
       }
     }
 
-    //loadSlides();
+    loadSlides();
   }, []);
 
   // Slide to next
