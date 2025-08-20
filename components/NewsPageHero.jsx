@@ -3,6 +3,7 @@ import PrimaryButton from "./PrimaryButton";
 import Link from "next/link";
 import { ArrowRightCircle } from "lucide-react";
 import { getStrapiMedia } from "@/utils/media";
+import { formatDate } from "@/utils/formatDate";
 
 const MainHeroNewsBlock = ({
   newsId,
@@ -84,9 +85,9 @@ const NewsPageHero = ({ mainNewsArticle, subNewsOne, subNewsTwo }) => {
     <section className="w-full px-4 lg:px-6 py-4 grid grid-cols-1 grid-rows-2 lg:grid-cols-7 gap-4">
       {mainNewsArticle && mainNewsArticle != null ? (
         <MainHeroNewsBlock
-          newsId={mainNewsArticle.id}
+          newsId={mainNewsArticle.documentId}
           newsTitle={mainNewsArticle.title}
-          newsDate={mainNewsArticle.createdAt}
+          newsDate={formatDate(mainNewsArticle.createdAt)}
           newsImgWide={mainNewsArticle.imgWide.url}
           newsImgPortrait={mainNewsArticle.imgPortrait.url}
         />
@@ -95,9 +96,9 @@ const NewsPageHero = ({ mainNewsArticle, subNewsOne, subNewsTwo }) => {
       )}
       {subNewsOne && subNewsOne != null ? (
         <SubHeroNewsBlock
-          newsId={subNewsOne.id}
+          newsId={subNewsOne.documentId}
           newsTitle={subNewsOne.title}
-          newsDate={subNewsOne.createdAt}
+          newsDate={formatDate(subNewsOne.createdAt)}
           newsImgWide={subNewsOne.imgWide.url}
           newsImgPortrait={subNewsOne.imgPortrait.url}
           newsTextPreview={subNewsOne.previewText}
@@ -107,13 +108,11 @@ const NewsPageHero = ({ mainNewsArticle, subNewsOne, subNewsTwo }) => {
       )}
       {subNewsTwo && subNewsTwo != null ? (
         <SubHeroNewsBlock
-          newsId={subNewsTwo.id}
+          newsId={subNewsTwo.documentId}
           newsTitle={subNewsTwo.title}
-          newsDate={subNewsTwo.createdAt}
+          newsDate={formatDate(subNewsTwo.createdAt)}
           newsImgWide={subNewsTwo.imgWide.url}
-          newsTextPreview={
-            "A fantastic weekend for the LASC Girls 2014 Team, reaching the Final at the Summer Classic Tournament!"
-          }
+          newsTextPreview={subNewsTwo.previewText}
         />
       ) : (
         <div className="row-span-1 w-full h-full min-h-[275px] lg:min-h-0 lg:w-full lg:h-full col-span-1 lg:col-span-3 rounded-[8px] grid grid-cols-1 sm:grid-cols-2 gap-4 animate-pulse"></div>

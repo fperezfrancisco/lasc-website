@@ -28,6 +28,10 @@ export async function getNewsArticles() {
   return await fetchAPI("/news-medias?populate=*");
 }
 
+export async function getNewsArticle(id) {
+  return await fetchAPI(`/news-medias/${id}?populate=*`);
+}
+
 export async function getTeams() {
   return await fetchAPI("/teams?populate=*");
 }
@@ -37,5 +41,9 @@ export async function getStaff() {
 }
 
 export async function getAlumni() {
-  return await fetchAPI("/alumnis?populate=*");
+  return await fetchAPI("/alumnis?populate=*&pagination[limit]=100");
+}
+
+export async function getPrograms() {
+  return await fetchAPI("/programs?populate=*");
 }
