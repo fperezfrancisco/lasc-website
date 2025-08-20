@@ -35,7 +35,7 @@ const LandingAboutSection = () => {
       <PictureAndPara
         title={"We Are LASC-SCV"}
         subHeader={"Who We Are"}
-        image="/youthSoccer1.jpg"
+        image="/lasc-girls-defending-3.jpg"
         text={
           "LASC-SCV mission is to provide a positive learning environment that enhances the development of both the physical and psychological components of soccer, along with the technical skills and tactical knowledge of the game. Through the work of our coaching leadership, along with our philosophy and core values, we strive to guide our players to make a positive contribution in a team environment, community, and to pursue the enjoyment and passion for the sport of soccer throughout their lives"
         }

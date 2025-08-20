@@ -33,7 +33,7 @@ const QuickActionBox = ({
         <Image
           src={boxImg}
           alt={boxImgAlt ? boxImgAlt : "quickbox image"}
-          className="object-cover w-full duration-300 ease-out transition-all object-bottom hover:scale-110 ease-out duration-200"
+          className="object-cover w-full h-full duration-300 ease-out transition-all object-bottom hover:scale-110 ease-out duration-200"
           width={500}
           height={500}
         />

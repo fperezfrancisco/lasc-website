@@ -3,12 +3,19 @@ import ComingSoonPage from "@/components/ComingSoonPage";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { alumni } from "@/lib/data/alumni";
+import { getAlumni } from "@/utils/api";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 
 export const AlumniBox = ({ alumni }) => (
   <div className="w-full h-full flex flex-col items-center gap-4">
-    <div className="w-full aspect-square bg-neutral-200 rounded-[8px]"></div>
+    <div className="w-full aspect-square bg-neutral-200 rounded-[8px] overflow-hidden">
+      {alumni.image && alumni.image.url ? (
+        <img src={alumni.image.url} className="w-full object-cover" />
+      ) : (
+        <></>
+      )}
+    </div>
     <div className="w-full px-2 flex flex-col items-center gap-0 text-center">
       <h2 className="font-semibold text-lg">{alumni.name}</h2>
       <p className="text-text/50 text-sm">{alumni.college}</p>
@@ -18,10 +25,27 @@ export const AlumniBox = ({ alumni }) => (
 
 const page = () => {
   const [mounted, setMounted] = useState(false);
+  const [alumniData, setAlumniData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
+
+    async function loadAlumni() {
+      try {
+        const data = await getAlumni();
+        console.log("Alumni Data: ", data);
+
+        setAlumniData(data);
+      } catch (err) {
+        console.error("Failed to load alumni data:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadAlumni();
   }, []);
 
   if (!mounted) {
@@ -51,7 +75,7 @@ const page = () => {
           </p>
         </section>
         <section className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-[1200px] mx-auto  items-center gap-5 mb-[48px]">
-          {alumni.map((alumni, idx) => (
+          {alumniData.map((alumni, idx) => (
             <AlumniBox key={idx} alumni={alumni} />
           ))}
         </section>

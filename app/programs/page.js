@@ -7,20 +7,40 @@ import { useTheme } from "next-themes";
 import Footer from "@/components/Footer";
 import PictureAndPara from "@/components/ui/PictureAndPara";
 import PrimaryButton from "@/components/PrimaryButton";
+import { getPrograms } from "@/utils/api";
 
 export default function Programs() {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
+  const [programs, setPrograms] = useState([]);
+  const [featuredProgram, setFeaturedProgram] = useState();
+  const [loading, setLoading] = useState(true);
 
   const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
-      setMounted(true);
-    }, []);
-  
-    if (!mounted) {
-      return null; // optional: return loading spinner or blank
+    setMounted(true);
+    async function loadPrograms() {
+      try {
+        const programData = await getPrograms();
+        console.log(programData);
+        setPrograms(programData);
+        const mainHero = programData.find(
+          (program) => program.programType === "featured"
+        );
+        setFeaturedProgram(mainHero);
+      } catch (err) {
+        console.error("Failed to load news data:", err);
+      } finally {
+        setLoading(false);
+      }
     }
+    loadPrograms();
+  }, []);
+
+  if (!mounted) {
+    return null; // optional: return loading spinner or blank
+  }
 
   return (
     <>
@@ -30,7 +50,7 @@ export default function Programs() {
       >
         {/* About section starts here */}
         <main className="mt-12 w-full flex flex-col gap-5">
-        {/* <main
+          {/* <main
           className={`transition-opacity duration-1000 ease-in-out ${
             isVisible ? "opacity-100" : "opacity-0"
           } w-full flex flex-col gap-5`}
@@ -70,27 +90,17 @@ export default function Programs() {
             <h1 className="w-fit text-center text-4xl font-bold mb-4 border-b-4 border-black dark:border-white px-4 py-2">
               Programs
             </h1>
-            <PictureAndPara
-              title={"Elite Academy Programs"}
-              image={"/youthSoccer1.jpg"}
-              text={
-                "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus."
-              }
-            />
-            <PictureAndPara
-              title={"Grassroots Programs"}
-              image={"/youthSoccer1.jpg"}
-              text={
-                "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus."
-              }
-            />
-            <PictureAndPara
-              title={"Friday Skills and GK Training"}
-              image={"/youthSoccer1.jpg"}
-              text={
-                "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus."
-              }
-            />
+            {!loading &&
+              programs
+                .sort((a, b) => a.order - b.order)
+                .map((program, idx) => (
+                  <PictureAndPara
+                    key={program.id}
+                    title={program.title}
+                    image={program.image.url}
+                    text={program.Description}
+                  />
+                ))}
           </section>
         </main>
       </div>
