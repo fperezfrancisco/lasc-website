@@ -54,7 +54,7 @@ const page = () => {
           All News
         </Link>
 
-        <main className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-10 md:px-15 pb-24">
+        <main className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-2 md:px-6 lg:px-10 pb-12">
           <section className="lg:col-span-2 flex flex-col">
             {/* Headers like hashtag, title, and author */}
             {/* Props needed would be hashtag, title, and author */}
@@ -72,14 +72,6 @@ const page = () => {
 
             {/* Image for blog here */}
             {/* Only props needed would be the image src path */}
-            {/* <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] bg-neutral-200 overflow-hidden mb-12">
-              <img
-                // src="/youthSoccerGirls.jpg"
-                src={article.imgMain}
-                className="object-cover object-center h-full w-auto sm:h-auto sm:w-full"
-              />
-              <div className="absolute w-full inset-0 h-full bg-black/50 z-10"></div>
-            </div> */}
             {/* <picture className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] bg-neutral-200 overflow-hidden mb-12"> */}
             <picture className="relative w-full rounded-[8px] bg-neutral-200 overflow-hidden mb-12">
               {/* Wide image for large screens */}
@@ -101,7 +93,7 @@ const page = () => {
             {/* Quote here for the blog */}
             {/* Props would just need the quote prop to stick into the span */}
             <div className="w-full col-span-2 flex flex-col gap-4">
-              <span className="w-full text-md sm:text-lg md:text-2xl xl:text-3xl text-left italic mb-6">
+              <span className="w-full text-md sm:text-lg md:text-2xl xl:text-3xl text-left italic mb-2">
                 {article.previewText}
               </span>
 
@@ -116,7 +108,7 @@ const page = () => {
           </section>
 
           {/* This is the Latest News side bar */}
-          <section className="flex flex-col justify-start pt-24">
+          <section className="flex flex-col justify-start pt-8 lg:pt-24">
             <h2 className="text-2xl text-center font-semibold">Latest news</h2>
             <div className="flex flex-col gap-8 w-full mt-6">
               {latestNews.map((news) => (

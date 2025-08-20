@@ -29,7 +29,7 @@ export async function getNewsArticles() {
 }
 
 export async function getTeams() {
-  return await fetchAPI("/teams?populate=*");
+  return await fetchAPI("/teams?populate=*&pagination[pageSize]=100");
 }
 
 export async function getStaff() {

@@ -3,10 +3,10 @@ import React from "react";
 
 const TeamCard = ({ image, team, coach }) => {
   return (
-    <div className="w-full max-w-[800px] sm:mx-auto h-full px-0 flex flex-col gap-4">
-      <div className="w-full h-[300px] aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">
+    <div className="w-full max-w-[800px] sm:mx-auto h-full px-0 flex flex-col justify-center gap-4">
+      <div className="w-full h-auto aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">
         {image ? (
-          <img src={image} className="w-full h-full object-cover" />
+          <img src={image.url} className="w-full h-full object-cover" />
         ) : (
           <p className="text-sm p-4 text-neutral-500">
             Team Picture Comming Soon

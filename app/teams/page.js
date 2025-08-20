@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import Footer from "@/components/Footer";
 import TeamCard from "@/components/ui/TeamCard";
 import { getTeams } from "@/utils/api";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Teams() {
   const [mounted, setMounted] = useState(false);
@@ -15,6 +16,8 @@ export default function Teams() {
   const { resolvedTheme } = useTheme();
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showBoys, setShowBoys] = useState(true);
+  const [showGirls, setShowGirls] = useState(true);
 
   const isDark = resolvedTheme === "dark";
 
@@ -25,8 +28,24 @@ export default function Teams() {
       try {
         const data = await getTeams();
         //console.log("Alumni Data: ", data);
+        let new_data = [...data].sort((a, b) => {
+          const yearA = parseInt(a.team.match(/\d{4}/)[0]); // extract 4-digit year
+          const yearB = parseInt(b.team.match(/\d{4}/)[0]);
 
-        setTeams(data);
+          if (yearB !== yearA) {
+            return yearB - yearA;
+          }
+
+          const isGoldA = a.team.includes("Gold");
+          const isGoldB = b.team.includes("Gold");
+
+          if (isGoldA && !isGoldB) return -1;
+          if (!isGoldA && isGoldB) return 1;
+
+          return a.team.localeCompare(b.team);
+        })
+
+        setTeams(new_data);
       } catch (err) {
         console.error("Failed to load teams data:", err);
       } finally {
@@ -35,6 +54,20 @@ export default function Teams() {
     }
 
     loadTeams();
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // lg breakpoint in Tailwind = 1024px
+        setShowBoys(true);
+        setShowGirls(true);
+      }
+    };
+
+    // run once on mount
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (!mounted) {
@@ -62,9 +95,32 @@ export default function Teams() {
           </section>
 
           {/* Team Cards */}
-          <section className="w-full flex justify-center px-8 sm:px-6 mb-24">
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 gap-y-10 max-w-[1100px] w-full">
-              {teams.map((team, index) => (
+          <section className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-4 mb-24">
+            <div className="flex flex-col max-w-[800px] min-w-[500px] w-full px-6 gap-8">
+              <span className="inline-flex items-center justify-start w-full gap-2">
+                <h2 className="text-3xl font-medium">Boys</h2>
+                <button onClick={() => setShowBoys(prev => !prev)} className="hover:cursor-pointer pt-1 lg:hidden">
+                  {showBoys ? <ChevronUp/> : <ChevronDown/>}
+                </button>
+              </span>
+              {showBoys && (teams.filter(team => team.gender === "boys")).map((team, index) => (
+                <TeamCard
+                  key={index}
+                  image={team.image}
+                  team={team.team}
+                  coach={team.coach}
+                />
+              ))}
+            </div>
+            
+            <div className="flex flex-col max-w-[800px] min-w-[500px] w-full px-6 gap-8 h-fit">
+              <span className="inline-flex items-center w-full gap-2">
+                <h2 className="text-3xl font-medium">Girls</h2>
+                <button onClick={() => setShowGirls(prev => !prev)} className="hover:cursor-pointer pt-1 lg:hidden">
+                  {showGirls ? <ChevronUp/> : <ChevronDown/>}
+                </button>
+              </span>
+              {showGirls && (teams.filter(team => team.gender === "girls")).map((team, index) => (
                 <TeamCard
                   key={index}
                   image={team.image}

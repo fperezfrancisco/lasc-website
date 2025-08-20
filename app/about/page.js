@@ -52,6 +52,21 @@ const page = () => {
     }
 
     loadStaff();
+
+    if (typeof window === "undefined") return;
+
+    const { hash } = window.location;
+    if (hash) {
+      // Try a few frames in case content loads a tick later
+      const tryScroll = () => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+      // run now and shortly after to be safe
+      tryScroll();
+      requestAnimationFrame(tryScroll);
+      setTimeout(tryScroll, 100);
+    }
   }, []);
 
   if (!mounted) {
@@ -142,10 +157,10 @@ const page = () => {
                     .fill(0)
                     .map((_, index) => <StaffCard key={index} />)}
             </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold uppercase text-text">
+            <h2 id="staff" className="text-2xl lg:text-3xl font-extrabold uppercase text-text">
               2025/26 Coaching Staff
             </h2>
-            <div className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center mb-6">
+            <section className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center mb-6">
               {Coaches.length > 0
                 ? Coaches.map((member, index) => (
                     <StaffCard
@@ -158,7 +173,7 @@ const page = () => {
                 : Array(6)
                     .fill(0)
                     .map((_, index) => <StaffCard key={index} />)}
-            </div>
+            </section>
           </section>
         </main>
       </div>

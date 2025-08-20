@@ -16,7 +16,7 @@ const AccompCard = ({ image, title, date }) => {
       {/* Text Container */}
       <div className="flex flex-col items-center text-center">
             <h4 className="text-sm font-medium italic">{date}</h4>
-            <h2 className="text-2xl lg:text-3xl font-extrabold uppercase">
+            <h2 className="text-xl lg:text-2xl font-medium uppercase">
                 {title}
             </h2>
         </div>
