@@ -11,6 +11,7 @@ const SubHeroNewsBlock = ({
   newsAction,
   newsTextPreview,
   newsImageLink,
+  newsId,
 }) => (
   <div className="row-span-1 w-full h-full min-h-[275px] lg:min-h-0 lg:w-full lg:h-full col-span-1 lg:col-span-3 rounded-[8px] grid grid-cols-1 sm:grid-cols-2 gap-4 ">
     <div className="bg-neutral-200 rounded-[4px] aspect-video sm:aspect-[unset] w-full h-full overflow-hidden">
@@ -29,7 +30,7 @@ const SubHeroNewsBlock = ({
         {newsTextPreview}
       </p>
       <Link
-        href={newsImageLink}
+        href={`/news/articles/${newsId}`}
         className="font-medium text-red-500 hover:text-red-700 text-xs md:text-sm flex items-center gap-2"
       >
         Read More <ArrowRightCircle className="size-4" />

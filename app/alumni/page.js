@@ -9,7 +9,13 @@ import React, { useEffect, useState } from "react";
 
 export const AlumniBox = ({ alumni }) => (
   <div className="w-full h-full flex flex-col items-center gap-4">
-    <div className="w-full aspect-square bg-neutral-200 rounded-[8px]"></div>
+    <div className="w-full aspect-square bg-neutral-200 rounded-[8px] overflow-hidden">
+      {alumni.image && alumni.image.url ? (
+        <img src={alumni.image.url} className="w-full object-cover" />
+      ) : (
+        <></>
+      )}
+    </div>
     <div className="w-full px-2 flex flex-col items-center gap-0 text-center">
       <h2 className="font-semibold text-lg">{alumni.name}</h2>
       <p className="text-text/50 text-sm">{alumni.college}</p>
@@ -29,7 +35,7 @@ const page = () => {
     async function loadAlumni() {
       try {
         const data = await getAlumni();
-        //console.log("Alumni Data: ", data);
+        console.log("Alumni Data: ", data);
 
         setAlumniData(data);
       } catch (err) {

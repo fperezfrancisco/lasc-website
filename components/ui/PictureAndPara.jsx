@@ -16,11 +16,18 @@ const PictureAndPara = ({
         <>
           <div className="w-full">
             <div className="w-full h-full aspect-video rounded-[8px] bg-neutral-200 overflow-hidden">
-              <Image
+              {/**
+                 * <Image
                 width={900}
                 height={900}
                 alt="Para Image"
                 src={image}
+                className="w-full object-cover"
+              />
+                 */}
+              <img
+                src={image}
+                alt="Para Image"
                 className="w-full object-cover"
               />
             </div>

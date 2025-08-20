@@ -15,19 +15,19 @@ const QuickActionsSection = ({ isDark }) => {
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Our Teams"}
-          boxImg={"/heroImgs/lascTeamGirls.png"}
+          boxImg={"/lasc-boys-2009.jpg"}
           boxAction={() => router.push("/teams")}
         />
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Our Programs"}
-          boxImg={"/heroImgs/lascTraining2.png"}
+          boxImg={"/lasc-gk-square.jpg"}
           boxAction={() => router.push("/programs")}
         />
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Tryout Info"}
-          boxImg={"/heroImgs/lascTraining.png"}
+          boxImg={"/lasc-girls-dribbling.jpg"}
           boxAction={() =>
             window.open(
               "https://lascscv.byga.net/tryouts/3hi1j6z0od/signup?tryout_id=3hi1j6z0od",
@@ -38,7 +38,7 @@ const QuickActionsSection = ({ isDark }) => {
         <QuickActionBox
           isDark={isDark}
           boxTitle={"Get in Touch"}
-          boxImg={"/heroImgs/lascTraining2.png"}
+          boxImg={"/lasc-girls-shot-2.jpg"}
           boxAction={() => router.push("/")}
         />
       </div>

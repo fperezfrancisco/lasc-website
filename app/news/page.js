@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import NewsPageHero from "@/components/NewsPageHero";
 import { allNews, heroNews } from "@/lib/data/news";
 import { getNewsArticles } from "@/utils/api";
+import { formatDate } from "@/utils/formatDate";
 import { getStrapiMedia } from "@/utils/media";
 import { ArrowRightCircle } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -20,23 +21,27 @@ export const ArticlePreview = ({ article }) => (
       {!article.imgWide ? (
         <div className="w-full h-full bg-neutral-200 animate-pulse"></div>
       ) : (
-        <img
-          src={getStrapiMedia(article.imgWide.url)}
-          alt=""
-          className="object-cover w-full h-full rounded-[8px]"
-        />
+        <Link href={`/news/articles/${article.documentId}`}>
+          <img
+            src={getStrapiMedia(article.imgWide.url)}
+            alt=""
+            className="object-cover w-full h-full rounded-[8px] cursor-pointer hover:scale-105 transition-all duration-300 ease-out"
+          />
+        </Link>
       )}
     </div>
     <div className="w-full h-full flex flex-col items-start justify-end py-2">
       <h2 className="leading-none font-semibold text-md md:text-lg">
         {article.title}
       </h2>
-      <p className="text-xs md:text-sm font-medium">{article.createdAt}</p>
+      <p className="text-xs md:text-sm font-medium">
+        {formatDate(article.createdAt)}
+      </p>
       <p className="text-xs md:text-sm my-2 text-neutral-500 font-medium line-clamp-3">
-        "Some Preview"
+        {article.previewText || "Check out this article"}
       </p>
       <Link
-        href={"/"}
+        href={`/news/articles/${article.documentId}`}
         className="font-medium text-red-500 hover:text-red-700 text-xs md:text-sm flex items-center gap-2"
       >
         Read More <ArrowRightCircle className="size-4" />
@@ -108,7 +113,10 @@ const page = () => {
               ? newsData
                   .slice(1)
                   .map((article) => (
-                    <ArticlePreview key={article.id} article={article} />
+                    <ArticlePreview
+                      key={article.documentId}
+                      article={article}
+                    />
                   ))
               : Array(4)
                   .fill(0)

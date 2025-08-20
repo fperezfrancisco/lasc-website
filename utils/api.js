@@ -28,8 +28,16 @@ export async function getNewsArticles() {
   return await fetchAPI("/news-medias?populate=*");
 }
 
+export async function getNewsArticle(id) {
+  return await fetchAPI(`/news-medias/${id}?populate=*`);
+}
+
 export async function getTeams() {
+<<<<<<< HEAD
   return await fetchAPI("/teams?populate=*&pagination[pageSize]=100");
+=======
+  return await fetchAPI("/teams?populate=*&pagination[limit]=100");
+>>>>>>> b1b739f98974477df802b5e81ddcf1d736bd779d
 }
 
 export async function getStaff() {
@@ -37,5 +45,9 @@ export async function getStaff() {
 }
 
 export async function getAlumni() {
-  return await fetchAPI("/alumnis?populate=*");
+  return await fetchAPI("/alumnis?populate=*&pagination[limit]=100");
+}
+
+export async function getPrograms() {
+  return await fetchAPI("/programs?populate=*");
 }
