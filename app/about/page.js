@@ -133,7 +133,7 @@ const page = () => {
                       key={index}
                       name={member.name}
                       position={member.position}
-                      image={member.img}
+                      image={member.image}
                     />
                   ))
                 : Array(5)
@@ -150,7 +150,7 @@ const page = () => {
                       key={index}
                       name={member.name}
                       position={member.position}
-                      image={member.img}
+                      image={member.image}
                     />
                   ))
                 : Array(3)
