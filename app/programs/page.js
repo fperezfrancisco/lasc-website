@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import PictureAndPara from "@/components/ui/PictureAndPara";
 import PrimaryButton from "@/components/PrimaryButton";
 import { getPrograms } from "@/utils/api";
+import Link from "next/link";
 
 export default function Programs() {
   const [mounted, setMounted] = useState(false);
@@ -99,6 +100,14 @@ export default function Programs() {
                     title={program.title}
                     image={program.image.url}
                     text={program.Description}
+                    button={program.buttonText && program.link ? (
+                      <Link href={program.link}>
+                        <PrimaryButton
+                        buttonText={program.buttonText}
+                        width={"200"}
+                      />
+                      </Link>
+                    ) : null}
                   />
                 ))}
           </section>
