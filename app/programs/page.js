@@ -9,6 +9,7 @@ import PictureAndPara from "@/components/ui/PictureAndPara";
 import PrimaryButton from "@/components/PrimaryButton";
 import { getPrograms } from "@/utils/api";
 import Link from "next/link";
+import ProgramSkeleton from "@/components/ui/ProgramSkeleton";
 
 export default function Programs() {
   const [mounted, setMounted] = useState(false);
@@ -91,8 +92,14 @@ export default function Programs() {
             <h1 className="w-fit text-center text-4xl font-bold mb-4 border-b-4 border-black dark:border-white px-4 py-2">
               Programs
             </h1>
-            {!loading &&
-              programs
+            {loading ? (
+              <>
+                <ProgramSkeleton />
+                <ProgramSkeleton />
+                <ProgramSkeleton />
+              </>
+            ) : 
+              (programs
                 .sort((a, b) => a.order - b.order)
                 .map((program, idx) => (
                   <PictureAndPara
@@ -109,7 +116,7 @@ export default function Programs() {
                       </Link>
                     ) : null}
                   />
-                ))}
+                )))}
           </section>
         </main>
       </div>

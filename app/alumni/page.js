@@ -6,6 +6,7 @@ import { alumni } from "@/lib/data/alumni";
 import { getAlumni } from "@/utils/api";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+import AlumniSkeleton from "@/components/ui/AlumniSkeleton";
 
 export const AlumniBox = ({ alumni }) => (
   <div className="w-full h-full flex flex-col items-center gap-4">
@@ -75,9 +76,22 @@ const page = () => {
           </p>
         </section>
         <section className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-[1200px] mx-auto  items-center gap-5 mb-[48px]">
-          {alumniData.map((alumni, idx) => (
-            <AlumniBox key={idx} alumni={alumni} />
-          ))}
+          { loading ? 
+            (
+              <>
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+                <AlumniSkeleton />
+              </>
+            ) : 
+            (alumniData.map((alumni, idx) => (
+                <AlumniBox key={idx} alumni={alumni} />
+          )))}
         </section>
       </main>
       <Footer />
