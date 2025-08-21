@@ -167,7 +167,7 @@ const page = () => {
                       key={index}
                       name={member.name}
                       position={member.position}
-                      image={member.img}
+                      image={member.image}
                     />
                   ))
                 : Array(6)

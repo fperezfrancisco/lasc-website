@@ -6,7 +6,7 @@ const StaffCard = ({ image, name, position }) => {
     <div className="w-full h-full px-4 flex flex-col gap-4">
       <div className="w-[250px] h-[300px] aspect-video rounded-[8px] bg-neutral-200 overflow-hidden flex items-center justify-center">
         {image ? (
-          <img src={image} className="w-full object-fit" />
+          <img src={image.url} className="w-full object-fit object-center" />
         ) : (
           <div className="p-4 rounded-full bg-neutral-400 flex items-center justify-center">
             <UserIcon className="size-[40px] text-neutral-200" />
