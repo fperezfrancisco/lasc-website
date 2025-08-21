@@ -63,14 +63,14 @@ const page = () => {
         className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-transparent text-text `}
       > */}
       <div
-        className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-transparent text-text px-10 py-5`}
+        className={`flex flex-col w-full max-w-[2000px] mx-auto my-0 h-full min-h-screen bg-transparent text-text px-4 py-5`}
       >
         <Link href={"/news"} className="flex items-center gap-2 pb-4">
           <ArrowLeftSquare className="size-[32px] text-red-500" />
           All News
         </Link>
 
-        <main className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-10 md:px-15 pb-24">
+        <main className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 md:px-15 pb-24">
           {currArticle ? (
             <section className="lg:col-span-2 flex flex-col">
               {/* Headers like hashtag, title, and author */}
@@ -91,16 +91,6 @@ const page = () => {
               </div>
 
               {/* Image for blog here */}
-              {/* Only props needed would be the image src path */}
-              {/* <div className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] bg-neutral-200 overflow-hidden mb-12">
-              <img
-                // src="/youthSoccerGirls.jpg"
-                src={article.imgMain}
-                className="object-cover object-center h-full w-auto sm:h-auto sm:w-full"
-              />
-              <div className="absolute w-full inset-0 h-full bg-black/50 z-10"></div>
-            </div> */}
-              {/* <picture className="relative w-full h-full aspect-3/4 sm:aspect-video min-h-[300px] md:max-h-[700px] rounded-[8px] bg-neutral-200 overflow-hidden mb-12"> */}
               <picture className="relative w-full rounded-[8px] bg-neutral-200 overflow-hidden mb-12">
                 {/* Wide image for large screens */}
                 <source

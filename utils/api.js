@@ -33,11 +33,7 @@ export async function getNewsArticle(id) {
 }
 
 export async function getTeams() {
-<<<<<<< HEAD
-  return await fetchAPI("/teams?populate=*&pagination[pageSize]=100");
-=======
   return await fetchAPI("/teams?populate=*&pagination[limit]=100");
->>>>>>> b1b739f98974477df802b5e81ddcf1d736bd779d
 }
 
 export async function getStaff() {

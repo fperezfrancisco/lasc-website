@@ -29,7 +29,7 @@ const NewsLandingBox = ({ newsImg, newsImgLarge, newsDate, newsId }) => {
 const SkeletonNewsLandingBox = () => {
   return (
     <div className="flex flex-col items-start gap-4">
-      <div className="w-full h-[90%] aspect-3/4 rounded-[8px] bg-neutral-200 overflow-hidden bg-neutral-100 animate-pulse"></div>
+      <div className="w-full h-[90%] aspect-3/4 rounded-[8px] bg-neutral-200 overflow-hidden animate-pulse"></div>
       <div className="w-full h-[10%] flex">
         <p className="w-full h-full rounded-[8px] bg-neutral-100 animate-pulse"></p>
       </div>
