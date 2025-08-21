@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { list, AccompCardsData } from "@/lib/data/AccompData";
 import AccompCard from "@/components/ui/AccompCard";
+import PrimaryButton from "@/components/PrimaryButton";
 
 const page = () => {
   const [mounted, setMounted] = useState(false);
@@ -52,7 +53,9 @@ const page = () => {
             
             <div className="w-full flex flex-col gap-5">
               <p className="text-sm md:text-md lg:text-lg z-1 font-medium">{list[0].paragraph}</p>
-              <Link href="/about#staff" scroll={true} className="text-sm md:text-md lg:text-lg z-1 font-medium underline">Meet our staff</Link>
+              <Link href="/about#staff" scroll={true} className="text-sm md:text-md lg:text-lg z-1 font-medium w-fit">
+                  <PrimaryButton buttonText="Meet our staff"/>
+              </Link>
             </div>
           </div>
 
@@ -78,7 +81,9 @@ const page = () => {
             </div>
             <div className="w-full flex flex-col gap-5">
               <p className="text-sm md:text-md lg:text-lg z-1 font-medium">{list[1].paragraph}</p>
-              <Link href="/alumni" scroll={true} className="text-sm md:text-md lg:text-lg z-1 font-medium underline">See our alumni</Link>
+              <Link href="/alumni" scroll={true} className="text-sm md:text-md lg:text-lg z-1 font-medium w-fit">
+                  <PrimaryButton buttonText="See our Alumni"/>
+              </Link>
             </div>
           </div>
         </div>
