@@ -11,7 +11,7 @@ const PictureAndPara = ({
   button,
 }) => {
   return (
-    <div className="w-full px-4 lg:px-6 py-[48px] md:py-[64px] lg:py-[120px] flex flex-col-reverse lg:flex-row gap-4 md:gap-8 lg:gap-10 xl:gap-18 items-center">
+    <div className="w-full px-2 lg:px-6 py-[48px] md:py-[64px] lg:py-[120px] flex flex-col-reverse lg:flex-row gap-4 md:gap-8 lg:gap-10 xl:gap-18 items-center">
       {imageFirst ? (
         <>
           <div className="w-full">
