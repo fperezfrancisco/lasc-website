@@ -39,7 +39,7 @@ const QuickActionsSection = ({ isDark }) => {
           isDark={isDark}
           boxTitle={"Get in Touch"}
           boxImg={"/lasc-girls-shot-2.jpg"}
-          boxAction={() => router.push("/")}
+          boxAction={() => router.push("mailto:jared.white@lasc-scv.org")}
         />
       </div>
     </section>
