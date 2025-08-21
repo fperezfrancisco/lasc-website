@@ -74,7 +74,7 @@ const TimelineGraphic = () => {
           up={true}
           cardText={"Affiliation with Real SoCal"}
           year={"2015"}
-          cardImg={"/heroImgs/realSocal.png"}
+          cardImg={"/heroImgs/realsocal.png"}
           delay={500}
         />
         <TimelineStem
