@@ -47,3 +47,7 @@ export async function getAlumni() {
 export async function getPrograms() {
   return await fetchAPI("/programs?populate=*");
 }
+
+export async function getAccomplishments() {
+  return await fetchAPI("/accomplishments?populate=*");
+}
