@@ -5,21 +5,18 @@ const AccompCard = ({ image, title, date }) => {
     <div className="w-full h-full px-4 flex flex-col gap-4 items-center">
       {/* Card container with background */}
       <div
-        className="relative w-full max-w-[450px] rounded-[6px] overflow-hidden bg-neutral-200 aspect-[4/3]" 
+        className="relative w-full max-w-[450px] rounded-[6px] overflow-hidden bg-neutral-200 aspect-[4/3]"
         style={{
-          backgroundImage: image ? `url(${image})` : undefined,
+          backgroundImage: image && image.url ? `url(${image.url})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-      >
-      </div>
+      ></div>
       {/* Text Container */}
       <div className="flex flex-col items-center text-center">
-            <h4 className="text-sm font-medium italic">{date}</h4>
-            <h2 className="text-xl lg:text-2xl font-medium uppercase">
-                {title}
-            </h2>
-        </div>
+        <h4 className="text-sm font-medium italic">{date}</h4>
+        <h2 className="text-lg lg:text-xl font-medium capitlize">{title}</h2>
+      </div>
     </div>
   );
 };

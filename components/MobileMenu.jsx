@@ -63,7 +63,7 @@ export default function MobileMenu() {
           <div className="flex flex-col gap-2 mt-8">
             <a
               className={`flex md:hidden text-xs font-bold px-4 py-2 border border-text text-text rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
-              href="/"
+              href="mailto:jared.white@lasc-scv.org"
             >
               Contact Us
             </a>

@@ -75,7 +75,7 @@ const Header = () => {
         <div className="flex gap-2">
           <a
             className={`hidden md:flex text-xs font-bold px-4 py-2 border rounded-[8px] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black`}
-            href="/"
+            href="mailto:jared.white@lasc-scv.org"
           >
             Contact Us
           </a>
