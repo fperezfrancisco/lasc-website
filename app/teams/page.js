@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import TeamCard from "@/components/ui/TeamCard";
 import { getTeams } from "@/utils/api";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import TeamsSkeleton from "@/components/ui/TeamsSkeleton";
 
 export default function Teams() {
   const [mounted, setMounted] = useState(false);
@@ -96,38 +97,54 @@ export default function Teams() {
 
           {/* Team Cards */}
           <section className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-4 mb-24">
-            <div className="flex flex-col max-w-[800px] min-w-[500px] w-full px-6 gap-8">
+            <div className="flex flex-col max-w-[800px] min-w-[300px] w-full px-6 gap-8">
               <span className="inline-flex items-center justify-start w-full gap-2">
                 <h2 className="text-3xl font-medium">Boys</h2>
                 <button onClick={() => setShowBoys(prev => !prev)} className="hover:cursor-pointer pt-1 lg:hidden">
                   {showBoys ? <ChevronUp/> : <ChevronDown/>}
                 </button>
               </span>
-              {showBoys && (teams.filter(team => team.gender === "boys")).map((team, index) => (
-                <TeamCard
-                  key={index}
-                  image={team.image}
-                  team={team.team}
-                  coach={team.coach}
-                />
-              ))}
+              {showBoys && 
+                (loading ? (
+                  <>
+                    <TeamsSkeleton />
+                    <TeamsSkeleton />
+                    <TeamsSkeleton />
+                  </>
+                ) :
+                (teams.filter(team => team.gender === "boys")).map((team, index) => (
+                  <TeamCard
+                    key={index}
+                    image={team.image}
+                    team={team.team}
+                    coach={team.coach}
+                  />
+                )))}
             </div>
             
-            <div className="flex flex-col max-w-[800px] min-w-[500px] w-full px-6 gap-8 h-fit">
+            <div className="flex flex-col max-w-[800px] min-w-[300px] w-full px-6 gap-8 h-fit">
               <span className="inline-flex items-center w-full gap-2">
                 <h2 className="text-3xl font-medium">Girls</h2>
                 <button onClick={() => setShowGirls(prev => !prev)} className="hover:cursor-pointer pt-1 lg:hidden">
                   {showGirls ? <ChevronUp/> : <ChevronDown/>}
                 </button>
               </span>
-              {showGirls && (teams.filter(team => team.gender === "girls")).map((team, index) => (
-                <TeamCard
-                  key={index}
-                  image={team.image}
-                  team={team.team}
-                  coach={team.coach}
-                />
-              ))}
+              {showGirls && 
+                (loading ? (
+                  <>
+                    <TeamsSkeleton />
+                    <TeamsSkeleton />
+                    <TeamsSkeleton />
+                  </>
+                ) :
+                (teams.filter(team => team.gender === "girls")).map((team, index) => (
+                  <TeamCard
+                    key={index}
+                    image={team.image}
+                    team={team.team}
+                    coach={team.coach}
+                  />
+                )))}
             </div>
           </section>
         </main>
