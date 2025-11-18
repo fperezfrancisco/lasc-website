@@ -98,8 +98,8 @@ export default function Programs() {
                 <ProgramSkeleton />
                 <ProgramSkeleton />
               </>
-            ) : 
-              (programs
+            ) : (
+              programs
                 .sort((a, b) => a.order - b.order)
                 .map((program, idx) => (
                   <PictureAndPara
@@ -107,16 +107,19 @@ export default function Programs() {
                     title={program.title}
                     image={program.image.url}
                     text={program.Description}
-                    button={program.buttonText && program.link ? (
-                      <Link href={program.link}>
-                        <PrimaryButton
-                        buttonText={program.buttonText}
-                        width={"200"}
-                      />
-                      </Link>
-                    ) : null}
+                    button={
+                      program.buttonText && program.link ? (
+                        <Link href={program.link}>
+                          <PrimaryButton
+                            buttonText={program.buttonText}
+                            width={"200"}
+                          />
+                        </Link>
+                      ) : null
+                    }
                   />
-                )))}
+                ))
+            )}
           </section>
         </main>
       </div>

@@ -69,7 +69,7 @@ export default function MobileMenu() {
             </a>
             <a
               className="flex md:hidden text-xs font-bold px-4 py-2 rounded-[8px] bg-[#C51010] hover:bg-[#920C0C] text-white"
-              href="https://lascscv.byga.net/tryouts/3hi1j6z0od/signup?tryout_id=3hi1j6z0od"
+              href="http://lascscv.byga.net/tryouts/q5ynru4a6j/signup"
               target="_blank"
             >
               Tryout Form
