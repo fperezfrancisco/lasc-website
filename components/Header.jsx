@@ -81,7 +81,7 @@ const Header = () => {
           </a>
           <a
             className="hidden md:flex text-xs font-bold px-4 py-2 rounded-[8px] bg-[#C51010] hover:bg-[#920C0C] text-white"
-            href="http://lascscv.byga.net/tryouts/q5ynru4a6j/signup"
+            href="https://lascscv.byga.net/tryouts/5qu655tjcw/signup"
             target="_blank"
           >
             Tryout Form
